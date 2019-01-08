@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var photoPost = sequelize.define("photoPost", {
+  var PetPhoto = sequelize.define("PetPhoto", {
     url: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     caption: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
@@ -27,18 +27,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  photoPost.associate = function(models) {
-    photoPost.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    photoPost.belongsTo(models.Photos, {
+  PetPhoto.associate = function(models) {
+    PetPhoto.belongsTo(models.Pet, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return photoPost;
+  return PetPhoto;
 };
