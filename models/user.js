@@ -37,16 +37,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   User.associate = function(models) {
-    User.hasMany(models.Community, {
-      foreignKey: {
-        allowNull: true
-      }
-    });
-    User.belongsToMany(models.Community, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    // User.hasMany(models.Community, {
+    //   foreignKey: {
+    //     allowNull: true
+    //   }
+    // });
+    // User.belongsToMany(models.Community, {
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
+    // });
     User.hasMany(models.PhotoPost, {
       onDelete: "cascade"
     });

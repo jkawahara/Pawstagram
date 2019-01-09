@@ -16,13 +16,18 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Community.associate = function(models) {
-    Community.hasMany(models.User, {
-      foreignKey: {
-        allowNull: true
-      }
-    });
-  };
+  // Community.associate = function(models) {
+  //   Community.hasMany(models.User, {
+  //     foreignKey: {
+  //       allowNull: true
+  //     }
+  //   });
+  //   Community.belongsToMany(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Community;
 };
