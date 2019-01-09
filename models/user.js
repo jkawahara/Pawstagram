@@ -3,6 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     userPhotoUrl: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue:
+        "https://i1.wp.com/www.mvhsoracle.com/wp-content/uploads/2018/08/default-avatar.jpg?w=300&ssl=1",
       validate: {
         isUrl: true
       }
@@ -30,10 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     communities: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
+      allowNull: true
     }
   });
   User.associate = function(models) {

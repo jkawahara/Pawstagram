@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
+        //also want to validate that the breed matches one in the array of breeds here
         len: [1]
       }
     },
