@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     communities: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }
@@ -36,5 +36,12 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
+  User.associate = function(models) {
+    User.hasMany(models.Community, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
   return User;
 };

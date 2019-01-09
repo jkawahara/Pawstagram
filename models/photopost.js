@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-    PhotoPost.belongsTo(models.Photos, {
+    PhotoPost.belongsTo(models.PetPhoto, {
       foreignKey: {
         allowNull: false
       }
