@@ -33,6 +33,9 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    PetPhoto.hasMany(models.PhotoPost, {
+      onDelete: "cascade"
+    });
   };
 
   return PetPhoto;

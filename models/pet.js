@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Pet = sequelize.define("User", {
+  var Pet = sequelize.define("Pet", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -49,18 +49,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Pet.associate = function(models) {
-    // Associating User with Posts
-    // When an User is deleted, also delete any associated Posts
-    Pet.hasMany(
-      models.Post,
-      {
-        onDelete: "cascade"
-      },
-      models.Photo,
-      {
-        onDelete: "cascade"
-      }
-    );
+    Pet.hasMany(models.PetPhoto, {
+      onDelete: "cascade"
+    });
     Pet.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
