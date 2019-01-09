@@ -13,14 +13,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     caption: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }
     },
     comments: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }

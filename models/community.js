@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     posts: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }

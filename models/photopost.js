@@ -17,11 +17,6 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   PhotoPost.associate = function(models) {
-    PhotoPost.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
     PhotoPost.belongsTo(models.PetPhoto, {
       foreignKey: {
         allowNull: false
