@@ -4,17 +4,54 @@
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
+        <form class="new-user" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="user-url">user-url</label>
+            <input type="text" id="user-url" class="form-control" aria-describedby="user-url" placeholder="user-url">
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="user-name">user-name</label>
+            <input type="text" id="user-name" class="form-control" aria-describedby="user-name" placeholder="user-name">
+          </div>
+          <div class="form-group">
+            <label for="user-email">user-email</label>
+            <input type="text" id="user-email" class="form-control" aria-describedby="user-email" placeholder="user-email">
+          </div>
+          <div class="form-group">
+            <label for="user-password">user-password</label>
+            <input type="text" id="user-password" class="form-control" aria-describedby="user-password" placeholder="user-password">
+          </div>
+          <div class="form-group">
+            <label for="user-communities">user-communities</label>
+            <input type="text" id="user-communities" class="form-control" aria-describedby="user-communities" placeholder="user-communities">
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
+
+        <form class="new-pet" action="POST">
+          <div class="form-group">
+            <label for="pet-user">pet-user</label>
+            <input type="text" id="pet-user" class="form-control" aria-describedby="pet-user" placeholder="pet-user">
+          </div>
+          <div class="form-group">
+            <label for="pet-name">pet-name</label>
+            <input type="text" id="pet-name" class="form-control" aria-describedby="pet-name" placeholder="pet-name">
+          </div>
+          <div class="form-group">
+            <label for="pet-species">pet-species</label>
+            <input type="text" id="pet-species" class="form-control" aria-describedby="pet-species" placeholder="pet-species">
+          </div>
+          <div class="form-group">
+            <label for="pet-age">pet-age</label>
+            <input type="text" id="pet-age" class="form-control" aria-describedby="pet-age" placeholder="pet-age">
+          </div>
+          <div class="form-group">
+            <label for="pet-profPic">pet-profPic</label>
+            <input type="text" id="pet-profPic" class="form-control" aria-describedby="pet-profPic" placeholder="pet-profPic">
+          </div>
+          <button id="submit2" class="btn btn-primary float-right">Submit2</button>
+        </form>
+
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
