@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    userPhotoUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true
+      }
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,18 +36,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
   User.associate = function(models) {
+    User.belongsToMany(models.Community, { through: "UserCommunity" });
     User.hasMany(models.PhotoPost, {
       onDelete: "cascade"
-    });
-  };
-
-  User.associate = function(models) {
-    User.hasMany(models.Community, {
-      foreignKey: {
-        allowNull: true
-      }
     });
   };
   return User;
