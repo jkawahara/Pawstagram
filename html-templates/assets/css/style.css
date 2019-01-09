@@ -1,0 +1,61 @@
+body {
+    background-image: url("../img/bg4-dark.jpg");
+    background-attachment: fixed;
+}
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+
+.drop-shadow {
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.remove-mb {
+    margin-bottom: -15px;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.description {
+    font-family: 'Lato', sans-serif;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.top-margin {
+    margin-top: 100px;
+}
+
+.bottom-margin {
+    margin-bottom: 80px;
+}
+
+.border-3 {
+    border-width:3px !important;
+}
+
+.border-purple {
+    border-color: #9c27b0 !important;
+}
+/* 
+.fixed-footer {
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #fff;
+} */
+
+.footer {
+    color: white;
+}
+
+.font-white {
+    color: white;
+}
