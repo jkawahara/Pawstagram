@@ -37,16 +37,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   User.associate = function(models) {
-    // User.hasMany(models.Community, {
-    //   foreignKey: {
-    //     allowNull: true
-    //   }
-    // });
-    // User.belongsToMany(models.Community, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
+    User.belongsToMany(models.Community, { through: "UserCommunity" });
     User.hasMany(models.PhotoPost, {
       onDelete: "cascade"
     });
