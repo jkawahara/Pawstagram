@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
   Community.associate = function(models) {
     Community.hasMany(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
