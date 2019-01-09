@@ -16,6 +16,10 @@ body {
     margin-bottom: -15px;
 }
 
+.remove-mt {
+    margin-top: -15px;
+}
+
 .font-lato {
     font-family: 'Lato', sans-serif;
 }
@@ -34,10 +38,6 @@ body {
 
 .bottom-margin {
     margin-bottom: 80px;
-}
-
-.border-3 {
-    border-width:3px !important;
 }
 
 .border-purple {
