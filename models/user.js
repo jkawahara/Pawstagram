@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: "userId",
       otherKey: "communityId"
     });
-    User.hasMany(models.PhotoPost, {
+    User.hasMany(models.Pet, {
       onDelete: "cascade"
     });
   };
