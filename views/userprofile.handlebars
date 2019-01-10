@@ -1,0 +1,160 @@
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+  <div class="container">
+    <div class="navbar-translate">
+      <a class="navbar-brand font-pacifico" href="#"> <i class="fas fa-paw"></i>
+        Petstagram </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="dropdown nav-item">
+          <a href="./user-page.html" class="nav-link">
+            <i class="material-icons">face</i> My Profile
+          </a>
+        </li>
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <i class="material-icons">pets</i> My Pets
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a href="#" class="dropdown-item">
+              Pet 1
+            </a>
+            <a href="#" class="dropdown-item">
+              Pet 2
+            </a>
+          </div>
+        </li>
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <i class="material-icons">group_work</i> My Communities
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a href="#" class="dropdown-item">
+              Community 1
+            </a>
+            <a href="#" class="dropdown-item">
+              Community 2
+            </a>
+            <a href="#" class="dropdown-item">
+              Community 3
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./login-page.html">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main main-raised top-margin bottom-margin">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-3 mt-3 mr-3 ml-3 mb-3 text-center">
+            <img class="mb-3 rounded-circle border border-purple" src="{{user.userPhotoUrl}}" style="width: 100%; border-width: 4px !important;">
+            <a href="#pablo" class="btn btn-primary mr-3"><i class="fa fa-envelope"></i></a>
+            <a href="#pablo" class="btn btn-primary"><i class="fa fa-address-card"></i></a>
+            <a href="#pablo" class="btn btn-primary"><i class="fas fa-user-plus"></i></a>
+          </div>
+          <div class="col-lg-8 mt-3 mr-3 ml-3 mb-3">
+            <h2>{{user.name}} <small class="ml-2"><small>{{user.location}}</small></small></h2>
+            <p> {{user.description}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="profile-tabs mb-3">
+          <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" href="#pets" role="tab" data-toggle="tab">
+                <i class="material-icons">pets</i> Pets
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#communities" role="tab" data-toggle="tab">
+                <i class="material-icons">group_work</i> Communities
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                <i class="material-icons">favorite</i> Favorites
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content tab-space">
+      <div class="tab-pane active text-center gallery col-lg-10 mx-auto" id="pets">
+        <div class="row">
+          <div id="pets-container">
+            pets-container
+          </div>
+          <div class="fix-to-bottom">
+            <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="communities">
+        <div class="row">
+          <div id="communities-container">
+            communities-container
+          </div>
+          <div class="fix-to-bottom">
+            <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="favorite">
+          <div class="row">
+            <div id="favorites-container">
+              favorites-container
+            </div>
+            <div class="fix-to-bottom">
+              <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer fixed-footer">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="#">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              GitHub Repo
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright float-right font-roboto text-uppercase"><small class="font-white">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, Petstagram.</small>
+      </div>
+    </div>
+  </footer>
+</div>
