@@ -6,13 +6,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
-    },
-    posts: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
     }
   });
 
