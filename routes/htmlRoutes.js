@@ -1,4 +1,4 @@
-// var db = require("../models");
+var db = require("../models");
 var path = require("path");
 
 module.exports = function(app) {
@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/community-page.html"));
   });
-  // Load singup-page
+  // Load signup-page
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
@@ -23,23 +23,42 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/pet-page.html"));
   });
 
-  // app.get("/", function(req, res) {
-  //   db.User.findAll({ raw: true }).then(function(dbUsers) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       users: dbUsers
-  //     });
-  //   });
-  // });
+  // For testing model using starter views
+  app.get("/index", function(req, res) {
+    db.User.findAll({ raw: true }).then(function(dbUsers) {
+      res.render("usertest", {
+        msg: "Welcome!",
+        users: dbUsers
+      });
+    });
+  });
 
-  // // Load user page and pass in a user by id
-  // app.get("/user/:id", function(req, res) {
-  //   db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
-  //     res.render("user", {
-  //       user: dbUser
-  //     });
-  //   });
-  // });
+  app.get("/index2", function(req, res) {
+    db.Pet.findAll({ raw: true }).then(function(dbPets) {
+      res.render("pettest", {
+        msg: "Welcome!",
+        pets: dbPets
+      });
+    });
+  });
+
+  // For testing model using starter views
+  app.get("/user/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
+      res.render("user", {
+        user: dbUser
+      });
+    });
+  });
+
+  // For testing model using starter views
+  app.get("/pet/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
+      res.render("pet", {
+        user: dbUser
+      });
+    });
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
