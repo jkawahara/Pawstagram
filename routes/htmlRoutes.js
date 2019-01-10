@@ -33,6 +33,15 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/index3", function(req, res) {
+    db.Community.findAll({ raw: true }).then(function(dbComms) {
+      res.render("commtest", {
+        msg: "Welcome!",
+        comms: dbComms
+      });
+    });
+  });
+
   app.get("/index2", function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
       res.render("pettest", {
@@ -47,6 +56,17 @@ module.exports = function(app) {
     db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
       res.render("user", {
         user: dbUser
+      });
+    });
+  });
+
+  // For testing model using starter views
+  app.get("/comm/:id", function(req, res) {
+    db.Community.findOne({ where: { id: req.params.id } }).then(function(
+      dbComm
+    ) {
+      res.render("comm", {
+        comm: dbComm
       });
     });
   });
