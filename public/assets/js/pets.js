@@ -75,9 +75,9 @@ var handleFormSubmit = function(event) {
     age: $petAge.val().trim(),
     profPic: $petProfPic.val().trim()
   };
-console.log(pet);
+  console.log(pet);
 
-  if (!(pet.UserId && pet.name && pet.species && pet.age && pet.petProfPic)) {
+  if (!(pet.UserId && pet.name && pet.species && pet.age && pet.profPic)) {
     alert("You must enter user ID, name, species, age and profile pic!");
     return;
   }
