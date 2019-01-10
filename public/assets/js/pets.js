@@ -69,10 +69,10 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var pet = {
-    UserId: $petUser.val().trim(),
+    UserId: parseInt($petUser.val().trim()),
     name: $petName.val().trim(),
     species: $petSpecies.val().trim(),
-    age: $petAge.val().trim(),
+    age: parseInt($petAge.val().trim()),
     profPic: $petProfPic.val().trim()
   };
   console.log(pet);
