@@ -36,12 +36,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   User.associate = function(models) {
-    User.belongsToMany(models.Community, {
-      through: "UserCommunity",
-      as: "Communities",
-      foreignKey: "userId",
-      otherKey: "communityId"
-    });
+    // User.belongsToMany(models.Community, {
+    //   through: "UserCommunity",
+    //   as: "Communities",
+    //   foreignKey: "userId",
+    //   otherKey: "communityId"
+    // });
     User.hasMany(models.Pet, {
       onDelete: "cascade"
     });

@@ -20,7 +20,8 @@ module.exports = function(sequelize, DataTypes) {
     PhotoPost.belongsTo(models.PetPhoto, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
   };
 
