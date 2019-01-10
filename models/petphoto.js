@@ -31,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
     PetPhoto.belongsTo(models.Pet, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
     PetPhoto.hasMany(models.PhotoPost, {
       onDelete: "cascade"

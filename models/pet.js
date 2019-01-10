@@ -56,7 +56,8 @@ module.exports = function(sequelize, DataTypes) {
     Pet.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
   };
 
