@@ -1,4 +1,4 @@
-var db = require("../models");
+// var db = require("../models");
 var path = require("path");
 
 module.exports = function(app) {
@@ -24,7 +24,7 @@ module.exports = function(app) {
   });
 
   // app.get("/", function(req, res) {
-  //   db.User.findAll({ raw: true }).then(function(dbUsers) {      
+  //   db.User.findAll({ raw: true }).then(function(dbUsers) {
   //     res.render("index", {
   //       msg: "Welcome!",
   //       users: dbUsers
