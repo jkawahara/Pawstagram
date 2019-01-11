@@ -47,12 +47,11 @@ $("#postComment").on("click", e=>{
     user: user,
     createdAt: moment().format("MM Do YYYY, h:mm:ss")
   };
-  database.ref().push(message);
+  database.ref("1").push(message);
 });
 
 //append new post to message board and clear the text box
-database.ref().on("child_added", snap=>{
-  console.log(snap.val());
+database.ref("1").on("child_added", snap=>{
   var text = $("<div>").attr("class", "col-lg-7 text-left").append(snap.val().text);
   var timeSince = $("<small>").append(snap.val().createdAt);
   var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user, " " ,moment(timeSince).fromNow());
