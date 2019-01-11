@@ -1,4 +1,4 @@
-# Petstagram
+# Pets-tagram
 ### 1. Why / Background
   * This is Berkeley Coding Boot Camp (BCBC) project 2 by group 6.
     * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack, to teach web development skills across the client and server. 
@@ -20,31 +20,31 @@
     * [Issues](https://github.com/sgenini/projectTwo/issues): Issue tracking for user stories, features and bug report
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
     * Design Description
+      * ![petstagram_architecture.png](public/assets/readme_links/petstagram_architecture.png "achitecture")
       * Application Setup (server.js)
         * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 8080. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
         * Required modules: npm (express, express-handlebars, method-override, body-parser)
-        * Relevant functions: require(), use(), engine(), set(), listen() 
+        * Relevant functions: require(), use(), engine(), set(), sync(), listen()
         * Export: N/A
       * Database Setup (schema.sql, seeds.sql)
-        * Create burgers_db database and burgers table with attributes (burger_name, devoured, date) with id as primary key
+        * Create sequelized_burgers_db database
         * Available Seed with 4 burgers
-      * Configuration Setup (connection.js, orm.js)
-        * Configure MySQL and ORM configuration
+      * Configuration Setup (connection.js, config.js)
+        * Configure connection to MySQL configuration
         * Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
-        * Assign methods to ORM object, selectAll(), insertOne() and updateOne() methods, respectively for Read, Create and Update operations
-        * Declare functions for 2 helper functions to support queries in SQL syntax
-        * Required modules: npm (mysql), connection.js
+        * Required modules: npm (mysql)
         * Relevant functions: require(), createConnection(), connect(), exports(), printQuestionMarks(), objToSql(), selectAll(), insertOne(), updateOne(), query()
-        * Export: connection, orm
-      * Model Setup (burger.js)
-        * Define ORM selectAll(), insertOne() and updateOne() methods in burger object
-        * Required modules: orm.js
+        * Export: connection
+      * Model Setup (/models, index.js)
+        * ![petstagram_model.png](public/assets/readme_links/petstagram_model.png "model")
+        * Define Sequelize version of Burger object
+        * Required modules: fs, path, sequelize, config.json
         * Relevant functions: require(), exports(), selectAll(), insertOne(), updateOne()
         * Export: burger
-      * Controller Setup (burger_controller.js)
-        * Assign routing for views to router: operations (Read, Create, Update), respectively for HTTP requests (get, post, put)
-        * Required modules: npm (express), burger.js
-        * Relevant functions: require(), exports(), get(), post(), put()
+      * Controller Setup (burgers_controller.js)
+        * Assign routing for views to router: operations (Read, Create, Update), respectively for HTTP requests (get, post, put) and Sequelize selectAll(), create() and update()
+        * Required modules: npm (express), /models
+        * Relevant functions: require(), exports(), get(), findAll(), post(), create(), put(), update()
         * Export: router
       * View Setup (server-side: main.handlebars, index.handlebars, burger-block.handlebars, client-side: views.js, burger_style.css, burger.img)
         * There are no client-side HTML assets, however, use views.js asset for HTTP requests (PUT, POST) and burger_style.css asset for background color
@@ -115,7 +115,7 @@
   * Running the tests:
     * Unit testing & integration testing TBD informally executed
   * Deployment:
-    * Deployed on [Heroku](https://dashboard.heroku.com/apps)
+    * Deployed on [Heroku](https://pets-tagram.herokuapp.com/)
  ## Versioning
   * For the versions available, see the tags on this repository.
  ## Authors
