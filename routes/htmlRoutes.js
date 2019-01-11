@@ -12,9 +12,9 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
   // Load login-page
-  app.get("/login", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/login-page.html"));
-  });
+  // app.get("/login", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login-page.html"));
+  // });
   // Load user-page
   app.get("/user", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/user-page.html"));
@@ -81,10 +81,6 @@ module.exports = function (app) {
     });
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
-    res.render("404");
-  });
 
   //passport stuff below
   app.get("/", function (req, res) {
@@ -106,9 +102,14 @@ module.exports = function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/home-page.html"));
+    res.sendFile(path.join(__dirname, "../public/pet-page.html"));
   });
 
+
+  // Render 404 page for any unmatched routes
+  app.get("*", function (req, res) {
+    res.render("404");
+  });
 };
 
 
