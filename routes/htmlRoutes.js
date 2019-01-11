@@ -53,11 +53,13 @@ module.exports = function(app) {
 
   // For testing model using starter views
   app.get("/user/:id", function(req, res) {
-    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.render("userprofile", {
-        user: dbUser
-      });
-    });
+    db.User.findOne({ where: { id: req.params.id }, include: [db.Pet] }).then(
+      function(dbUser) {
+        res.render("userprofile", {
+          user: dbUser
+        });
+      }
+    );
   });
 
   // For testing model using starter views

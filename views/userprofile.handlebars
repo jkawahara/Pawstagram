@@ -70,6 +70,7 @@
           <div class="col-lg-8 mt-3 mr-3 ml-3 mb-3">
             <h2>{{user.name}} <small class="ml-2"><small>{{user.location}}</small></small></h2>
             <p> {{user.bio}} </p>
+            <p> {{user.id}}</p>
           </div>
         </div>
       </div>
@@ -101,7 +102,10 @@
       <div class="tab-pane active text-center gallery col-lg-10 mx-auto" id="pets">
         <div class="row">
           <div id="pets-container">
-            pets-container
+            {{#each user.Pets}}
+              {{!-- name: {{user.Pets.[0].name}} --}}
+              {{> pets/pet-block}}
+            {{/each}}
           </div>
           <div class="fix-to-bottom">
             <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
@@ -158,3 +162,4 @@
     </div>
   </footer>
 </div>
+
