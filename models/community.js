@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1]
-      }  
+      }
     },
     posts: {
       type: DataTypes.TEXT,
@@ -16,11 +16,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     createdAt: {
       type: DataTypes.DATE,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
     },
     updatedAt: {
       type: DataTypes.DATE,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
     }
   });
 
