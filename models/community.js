@@ -14,6 +14,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    },
     bio: {
       type: DataTypes.TEXT,
       allowNull: true
