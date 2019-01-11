@@ -35,12 +35,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     bio: {
-      type : DataTypes.TEXT,
+      type: DataTypes.TEXT,
       allowNull: true
     },
-    location : {
-      type : DataTypes.STRING,
-      allownull : true
+    location: {
+      type: DataTypes.STRING,
+      allownull: true
     }
   });
   User.associate = function(models) {
