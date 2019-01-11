@@ -21,35 +21,37 @@
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
     * Design Description ![petstagram_architecture.png](public/assets/readme_links/petstagram_architecture.png "achitecture")
       * Application Setup (server.js)
-        * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 8080. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
-        * Required modules: npm (express, express-handlebars, method-override, body-parser)
+        * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 3000. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
+        * Required modules: npm (dotenv, express, express-handlebars), path
         * Relevant functions: require(), use(), engine(), set(), sync(), listen()
-        * Export: N/A
-      * Database Setup (schema.sql, seeds.sql)
-        * Create sequelized_burgers_db database
-        * Available Seed with 4 burgers
-      * Configuration Setup (connection.js, config.js)
-        * Configure connection to MySQL configuration
-        * Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
-        * Required modules: npm (mysql)
-        * Relevant functions: require(), createConnection(), connect(), exports(), printQuestionMarks(), objToSql(), selectAll(), insertOne(), updateOne(), query()
-        * Export: connection
+        * Export: app
+      * Database Setup (schema.sql, seeds.sql TBD)
+        * Create petstagram_db database
+        * Available Seed with TBD
+      * Configuration Definition (config.json)
+        * Define configuration object with nested development, test and production environments
       * Model Setup (/models, index.js) ![petstagram_model.png](public/assets/readme_links/petstagram_model.png "model")
-        * Define Sequelize version of Burger object
+        * Define Sequelize version of Community, User, Pet, PetPhoto, PhotoPost objects including associations
+        * TBD Configure connection to MySQL configuration
+        * TBD Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
         * Required modules: fs, path, sequelize, config.json
-        * Relevant functions: require(), exports(), selectAll(), insertOne(), updateOne()
-        * Export: burger
-      * Controller Setup (burgers_controller.js)
-        * Assign routing for views to router: operations (Read, Create, Update), respectively for HTTP requests (get, post, put) and Sequelize selectAll(), create() and update()
-        * Required modules: npm (express), /models
-        * Relevant functions: require(), exports(), get(), findAll(), post(), create(), put(), update()
-        * Export: router
-      * View Setup (server-side: main.handlebars, index.handlebars, burger-block.handlebars, client-side: views.js, burger_style.css, burger.img)
-        * There are no client-side HTML assets, however, use views.js asset for HTTP requests (PUT, POST) and burger_style.css asset for background color
-        * Use Handlebars.js as web templating system for main layout, index and burger-block partial
-        * main.handlebars: include boilerplate HTML5 doctype and viewport meta tag along with Bootstrap CSS and jQuery
-        * index.handlebars: use Bootstrap grid layout for positioning burgers 2 columns based on devoured state and form (add new burger)
-        * burger-block.handlebars: show button to devour burger if not devoured state
+        * Relevant functions: require(), readdirSync(), filter(), forEach(), import(), join(), keys(), associate(), exports(), define(), belongsToMany(), hasMany(), belongsTo()
+        * Export: db, Community, Pet, PetPhoto, PhotoPost, User
+      * Posts Model Setup (TBD)
+        * Define Firebase Realtime version of Posts object
+      * Controller Setup (apiRoutes.js, htmlRoutes.js)
+        * Assign routing views <-> model <-> DB as HTTP methods <-> CRUD operations <-> SQL
+          * POST <-> Create <-> INSERT
+          * GET <-> Read <-> SELECT
+          * PUT <-> Update <-> UPDATE
+          * DELETE <-> Delete <-> DELETE
+        * Required modules: /models, path
+        * Relevant functions: require(), exports(), get(), findAll(), findOne(), post(), create(), put(), update(), delete(), destroy(), sendFile(), render()
+        * Export: router, function(app) {}
+      * View Setup (server-side: main, 404, comm, commtest, pet, petprofile, pettest, user, userprofile, usertest.handlebars, client-side: community, home, login, pet, signup, user-page.html, /assets)
+        * Use Handlebars.js as web templating system for main layout
+        * TBD main.handlebars: include boilerplate HTML5 doctype and viewport meta tag along with Bootstrap CSS and jQuery
+        * TBD index.handlebars: use Bootstrap grid layout for positioning burgers 2 columns based on devoured state and form (add new burger)
   * Prerequisites for Development:
     * MacBook Air (Intel Core i7, 2.2 GHz, 1 Processor, 2 Cores, 8GB)
     * 64 bit operating system 
@@ -148,10 +150,12 @@
         * README.md
         * server.js
     * Once the application files are ready per the above structure, go to the application root directory level
-      * Enter the following in termminal to install required node packages. This executes by referring to the included dependencies in package.json and creates required node packages in /node_modules and package-lock.json:
+      * Enter the following in terminal to install required node packages. This executes by referring to the included dependencies in package.json and creates required node packages in /node_modules and package-lock.json:
         * npm install
   * Running the tests:
-    * Unit testing & integration testing TBD informally executed
+    * For linter rules, refer to [eslintrc.json](.eslintrc.json)
+    * Unit testing was informally executed
+    * Continuous Integration was practiced by merging smaller code changes frequently and, prior to deployment, leveraging [Travis CI](https://docs.travis-ci.com/user/tutorial/) to carry out a series of automated tasks to build and test the code
   * Deployment:
     * App deployed on [Heroku](https://pets-tagram.herokuapp.com/)
  ## Versioning
