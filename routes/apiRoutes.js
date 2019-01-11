@@ -1,5 +1,5 @@
 var db = require("../models");
-var passport = require("../config/passport")
+var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all users
@@ -85,13 +85,13 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    console.log("HERE")
+    console.log("HERE");
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the home page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     res.json("/members");
   });
-  
+
   // Delete a pet by id
   app.delete("/api/pets/:id", function(req, res) {
     db.Pet.destroy({ where: { id: req.params.id } }).then(function(dbPets) {
@@ -108,16 +108,16 @@ module.exports = function(app) {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password
-    }).then(function() {
-      debugger;
-      res.redirect(307, "/api/login");
-    }).catch(function(err) {
-      debugger;
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    })
+      .then(function() {
+        debugger;
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        debugger;
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
 };
-
-
