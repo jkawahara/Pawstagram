@@ -17,7 +17,12 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Community.associate = function(models) {
-    Community.belongsToMany(models.User, { through: "UserCommunity" });
+    Community.belongsToMany(models.User, {
+      through: "UserCommunity",
+      as: "Communities",
+      foreignKey: "communityId",
+      otherKey: "userId"
+    });
   };
   return Community;
 };
