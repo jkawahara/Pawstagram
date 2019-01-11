@@ -75,7 +75,10 @@ module.exports = function(app) {
 
   // For testing model using starter views
   app.get("/pet/:id", function(req, res) {
-    db.Pet.findOne({ where: { id: req.params.id } }).then(function(dbPets) {
+    db.Pet.findOne({
+      where: { id: req.params.id },
+      include: [db.User, db.PetPhoto]
+    }).then(function(dbPets) {
       res.render("petprofile", {
         pets: dbPets
       });

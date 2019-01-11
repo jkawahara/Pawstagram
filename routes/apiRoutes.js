@@ -61,7 +61,7 @@ module.exports = function(app) {
 
   // Get all pets
   app.get("/api/pets", function(req, res) {
-    db.Pet.findAll({ include: [db.User] }).then(function(dbPets) {
+    db.Pet.findAll({ include: [db.User, db.PetPhoto] }).then(function(dbPets) {
       res.json(dbPets);
     });
   });
