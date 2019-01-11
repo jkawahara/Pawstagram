@@ -40,7 +40,7 @@ var user = "test";
 
 
 //on submit, push message to firebase
-$("button").on("submit", e=>{
+$("#postComment").on("click", e=>{
   e.preventDefault();
   console.log(e)
   var message = {
@@ -55,7 +55,7 @@ database.ref().on("child_added", snap=>{
   var text = $("<div>").attr("class", "col-lg-7 text-left").append(snap.text);
   var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.user);
   var post = $("<li>").attr("class", "list-group-item border rounded mt-3").append(text, user);
-  $("ul").prepend(post);
+  $("#board").prepend(post);
   $("#form10").val("")  
 })
 
