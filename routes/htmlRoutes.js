@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = function(app) {
   // Load community-page (index)
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/community-page.html"));
+    res.sendFile(path.join(__dirname, "../public/home-page.html"));
   });
   // Load signup-page
   app.get("/signup", function(req, res) {
