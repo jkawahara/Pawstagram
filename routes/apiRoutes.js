@@ -102,13 +102,16 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
+    debugger;
     db.User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password
     }).then(function() {
+      debugger;
       res.redirect(307, "/api/login");
     }).catch(function(err) {
+      debugger;
       console.log(err);
       res.json(err);
       // res.status(422).json(err.errors[0].message);

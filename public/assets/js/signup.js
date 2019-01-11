@@ -5,7 +5,7 @@ $(document).ready(function() {
   var passwordInput = $("input#password-input");
   // var passwordConfirm = $("input#password-confirm");
   var fullName = $("input#fullname-input");
-
+  // console.log(fullName.val())
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("click", function(event) {
     event.preventDefault();
@@ -20,12 +20,12 @@ $(document).ready(function() {
       //if the passwords don't match, informs the user of such
     //   notMatchingPassword();
     // }
-
+      console.log(userData)
     if (!userData.email || !userData.password || !userData.name) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
+    signUpUser(userData.email, userData.password, userData.name);
     emailInput.val("");
     passwordInput.val("");
     // passwordConfirm.val("");
@@ -33,7 +33,7 @@ $(document).ready(function() {
     
     // Does a post to the signup route. If succesful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(email, password) {
+    function signUpUser(email, password, name) {
       $.post("/api/signup", {
         email: email,
         password: password,
