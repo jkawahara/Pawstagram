@@ -1,19 +1,20 @@
 var db = require("../models");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Load community-page (index)
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home-page.html"));
-  });
+  // app.get("/", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/home-page.html"));
+  // });
   // Load signup-page
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
   // Load login-page
-  app.get("/login", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/login-page.html"));
-  });
+  // app.get("/login", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login-page.html"));
+  // });
   // Load user-page
   app.get("/user", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user-page.html"));
@@ -78,6 +79,29 @@ module.exports = function(app) {
         pets: dbPets
       });
     });
+  });
+
+  //passport stuff below
+  app.get("/", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup-page.html"));
+  });
+
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.sendFile(path.join(__dirname, "../public/login-page.html"));
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/members", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/pet-page.html"));
   });
 
   // Render 404 page for any unmatched routes
