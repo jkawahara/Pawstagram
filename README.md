@@ -19,8 +19,7 @@
     * [Projects](https://github.com/sgenini/projectTwo/projects/1): Kanban board for documenting user stories and overall progress
     * [Issues](https://github.com/sgenini/projectTwo/issues): Issue tracking for user stories, features and bug report
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
-    * Design Description
-      * ![petstagram_architecture.png](public/assets/readme_links/petstagram_architecture.png "achitecture")
+    * Design Description ![petstagram_architecture.png](public/assets/readme_links/petstagram_architecture.png "achitecture")
       * Application Setup (server.js)
         * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 8080. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
         * Required modules: npm (express, express-handlebars, method-override, body-parser)
@@ -35,8 +34,7 @@
         * Required modules: npm (mysql)
         * Relevant functions: require(), createConnection(), connect(), exports(), printQuestionMarks(), objToSql(), selectAll(), insertOne(), updateOne(), query()
         * Export: connection
-      * Model Setup (/models, index.js)
-        * ![petstagram_model.png](public/assets/readme_links/petstagram_model.png "model")
+      * Model Setup (/models, index.js) ![petstagram_model.png](public/assets/readme_links/petstagram_model.png "model")
         * Define Sequelize version of Burger object
         * Required modules: fs, path, sequelize, config.json
         * Relevant functions: require(), exports(), selectAll(), insertOne(), updateOne()
@@ -60,15 +58,21 @@
     * [GitHub projectTwo](https://github.com/sgenini/projectTwo)
     * Chrome Version 70.0.3538.110 (Official Build) (64-bit)
   * Built With:
+    * Client-side:
+      * HTML/CSS/JS
+      * [Material Design for Bootstrap](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/introduction/)
     * Server-side:
       * [Node.js](https://nodejs.org/docs/latest/api/documentation.html)
         * [npm](https://www.npmjs.com/)
+          * [dotenv](https://www.npmjs.com/package/dotenv)
           * [express](https://www.npmjs.com/package/express)
           * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-          * [method-override](https://www.npmjs.com/package/method-override)
-          * [mysql](https://www.npmjs.com/package/mysql)
-    * Client-side: HTML, CSS, JavaScript
-    * Cloud: [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) with [JawsDB MySQL plugin](https://devcenter.heroku.com/articles/jawsdb)
+          * [mysql2](https://www.npmjs.com/package/mysql2)
+          * [sequelize](https://www.npmjs.com/package/sequelize)
+          * [passport](https://www.npmjs.com/package/passport)
+    * Cloud:
+      * [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) with [JawsDB MySQL plugin](https://devcenter.heroku.com/articles/jawsdb)
+      * [Firebase Realtime DB](https://firebase.google.com/docs/web/setup)
   * Installing:
     * For further development or use of this application, clone or download application files from GitHub, which is organized into the following directory structure:
       * /projectTwo (application root directory level)
@@ -140,7 +144,7 @@
         * .travis.yml
         * LICENSE
         * package-lock.json
-        * package.json - includes dependencies
+        * package.json - includes scripts, dependencies, devDependencies
         * README.md
         * server.js
     * Once the application files are ready per the above structure, go to the application root directory level
@@ -149,7 +153,7 @@
   * Running the tests:
     * Unit testing & integration testing TBD informally executed
   * Deployment:
-    * Deployed on [Heroku](https://pets-tagram.herokuapp.com/)
+    * App deployed on [Heroku](https://pets-tagram.herokuapp.com/)
  ## Versioning
   * For the versions available, see the tags on this repository.
  ## Authors
@@ -158,4 +162,4 @@
  ## License
   * This project is licensed under the [MIT License](LICENSE).
  ## Acknowledgments
-  * Thanks to BCBC program personnel, especially our instructor, David Hallinan, along with our TAs Hannah Bowers and Glo Austin, for their guidance and support.
+  * Thanks to BCBC program personnel, especially our instructor, David Hallinan, along with our TAs, Hannah Bowers and Glo Austin, for their guidance and support.
