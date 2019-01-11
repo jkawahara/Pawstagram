@@ -71,7 +71,7 @@
             <h2>{{pets.name}} <small class="ml-2"><small>{{pets.breed}}</small></small></h2>
             <h3 class="remove-mt"><small>{{pets.age}} years old</small></h3>
             <p> {{pets.bio}}</p>
-            <p> {{pets.UserId}}</p>
+            <p> Owned by <a href="../../user/{{pets.User.id}}">{{pets.User.name}}</a></p>
           </div>
         </div>
       </div>
@@ -92,9 +92,9 @@
                 {{> petPhotos/petPhoto-block}}
               {{/each}}
             </div>
-            <div class="fix-to-bottom">
+            {{!-- <div class="fix-to-bottom">
               <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
