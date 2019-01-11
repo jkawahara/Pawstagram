@@ -75,31 +75,65 @@
         * /config
           * config.json
         * /models
-          * communitiesTBD
+          * community.js
           * index.js
-          * petsTBD
+          * pet.js
+          * petphoto.js
+          * photopost.js
           * schema.sql
-          * seeds.sql
-          * usersTBD
+          * user.js
         * /node_modules (ignored by git) - generated first time npm install executes
         * /public
-          * /js
-            * index.js
-          * /styles
-            * style.css
-          * /img
-            * TBD
+          * assets
+            * /css
+              * material-kit.css
+              * material-kit.css.map
+              * material-kit.min.css
+              * style.css
+            * /demo
+              * demo.css
+            * /img (various)
+              * /examples (various)
+              * /faces (various)
+            * /js
+              * /core (various)
+              * /plugins (various)
+              * comms.js
+              * material-kit.js
+              * material-kit.js.map
+              * material-kit.js.js
+              * pets.js
+              * users.js
+            * /readme_links
+              * petstagram_architecture.png
+              * petstagram_model.png
+            * /scss (various)
+          * community-page.html
+          * home-page.html
+          * login-page.html
+          * pet-page.html
+          * signup-page.html
+          * user-page.html
         * /routes
           * apiRoutes.js
           * htmlRoutes.js
         * /test
+          * canary.test.js
           * test.js
         * /views
           * /layouts
             * main.handlebars
           * /partials
             * TBD
-          * index.handlebars
+          * 404.handlebars
+          * comm.handlebars
+          * commtest.handlebars
+          * pet.handlebars
+          * petprofile.handlebars
+          * pettest.handlebars
+          * user.handlebars
+          * usertest.handlebars
+          * userprofile.handlebars 
         * .eslintignore
         * .eslintrc.json
         * .gitignore
