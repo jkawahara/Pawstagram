@@ -12,12 +12,21 @@ body {
     text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
+
+.box-shadow {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
 .remove-mb {
     margin-bottom: -15px;
 }
 
 .remove-mt {
     margin-top: -15px;
+}
+
+.remove-mr {
+    margin-right: -15px;
 }
 
 .font-lato {

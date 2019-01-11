@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1]
-      }
+      }  
     },
     posts: {
       type: DataTypes.TEXT,
@@ -17,7 +17,12 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Community.associate = function(models) {
-    Community.belongsToMany(models.User, { through: "UserCommunity" });
+    Community.belongsToMany(models.User, {
+      through: "UserCommunity",
+      as: "Communities",
+      foreignKey: "communityId",
+      otherKey: "userId"
+    });
   };
   return Community;
 };
