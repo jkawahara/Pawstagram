@@ -3,22 +3,31 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  // Load community-page (index)
-  // app.get("/", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/home-page.html"));
-  // });
-  // Load signup-page
+  // Load sign up page
+  app.get("/", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/user");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup-page.html"));
+  });
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
-  // Load login-page
-  // app.get("/login", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/login-page.html"));
-  // });
-  // Load user-page
-  app.get("/user", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user-page.html"));
+  // Load login page
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/user");
+    }
+    res.sendFile(path.join(__dirname, "../public/login-page.html"));
   });
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/user", isAuthenticated, function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/user-page.html"));
+   res.redirect("/user/" + req.user.id)
+  });
+
   // Load pet-page
   app.get("/pet", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/pet-page.html"));
@@ -53,7 +62,7 @@ module.exports = function(app) {
   });
 
   // For testing model using starter views
-  app.get("/user/:id", function(req, res) {
+  app.get("/user/:id", isAuthenticated, function(req, res) {
     db.User.findOne({ where: { id: req.params.id }, include: [db.Pet] }).then(
       function(dbUser) {
         res.render("userprofile", {
@@ -84,31 +93,6 @@ module.exports = function(app) {
         pets: dbPets
       });
     });
-  });
-
-  //passport stuff below
-  app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup-page.html"));
-  });
-
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login-page.html"));
-  });
-
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    console.log(req.user)
-    // res.sendFile(path.join(__dirname, "../public/user-page.html"));
-    res.redirect("/user/" + req.user.id)
   });
 
   // Render 404 page for any unmatched routes
