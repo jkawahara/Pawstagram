@@ -1,23 +1,33 @@
 var db = require("../models");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  // Load community-page (index)
+  // Load sign up page
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home-page.html"));
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/user");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
-  // Load signup-page
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup-page.html"));
   });
-  // Load login-page
+  // Load login page
   app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/user");
+    }
     res.sendFile(path.join(__dirname, "../public/login-page.html"));
   });
-  // Load user-page
-  app.get("/user", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user-page.html"));
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/user", isAuthenticated, function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/user-page.html"));
+   res.redirect("/user/" + req.user.id)
   });
+
   // Load pet-page
   app.get("/pet", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/pet-page.html"));
@@ -52,12 +62,14 @@ module.exports = function(app) {
   });
 
   // For testing model using starter views
-  app.get("/user/:id", function(req, res) {
-    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.render("userprofile", {
-        user: dbUser
-      });
-    });
+  app.get("/user/:id", isAuthenticated, function(req, res) {
+    db.User.findOne({ where: { id: req.params.id }, include: [db.Pet] }).then(
+      function(dbUser) {
+        res.render("userprofile", {
+          user: dbUser
+        });
+      }
+    );
   });
 
   // For testing model using starter views
@@ -73,7 +85,10 @@ module.exports = function(app) {
 
   // For testing model using starter views
   app.get("/pet/:id", function(req, res) {
-    db.Pet.findOne({ where: { id: req.params.id } }).then(function(dbPets) {
+    db.Pet.findOne({
+      where: { id: req.params.id },
+      include: [db.User, db.PetPhoto]
+    }).then(function(dbPets) {
       res.render("petprofile", {
         pets: dbPets
       });

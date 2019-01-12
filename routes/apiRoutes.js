@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all users
@@ -61,7 +62,7 @@ module.exports = function(app) {
 
   // Get all pets
   app.get("/api/pets", function(req, res) {
-    db.Pet.findAll({ include: [db.User] }).then(function(dbPets) {
+    db.Pet.findAll({ include: [db.User, db.PetPhoto] }).then(function(dbPets) {
       res.json(dbPets);
     });
   });
@@ -80,10 +81,38 @@ module.exports = function(app) {
     });
   });
 
+  // If the user has valid login credentials, send them to the members page.
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json("/user");
+  });
+
   // Delete a pet by id
   app.delete("/api/pets/:id", function(req, res) {
     db.Pet.destroy({ where: { id: req.params.id } }).then(function(dbPets) {
       res.json(dbPets);
     });
+  });
+  
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // otherwise send back an error
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
+  });
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
   });
 };
