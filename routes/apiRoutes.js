@@ -19,6 +19,12 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
+  
+  // Get CURRENT user
+  app.get('/thisuser', function(req, res) {
+    console.log(req.user)
+    res.json(req.user);
+});
 
   // Get user
   app.get("/api/users/:id", function(req, res) {
