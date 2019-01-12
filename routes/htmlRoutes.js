@@ -22,6 +22,12 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/login-page.html"));
   });
+
+  // Load static home-page for demo
+  app.get("/home", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home-page.html"));
+  });
+
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/user", isAuthenticated, function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/user-page.html"));
