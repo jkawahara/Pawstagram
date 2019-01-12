@@ -45,7 +45,7 @@
 {{!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="../../assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
-   <script src="../../assets/js/community-page.js"></script>
+<script src="../../assets/js/community-page.js"></script>
 <script>
 var messageScroll = $('#message-container')
     messageScroll.animate({
@@ -127,6 +127,6 @@ var messageScroll = $('#message-container')
 $.get("/api/thisuser", 
 function(data) {
   userId = data.id
-  console.log(userId)
+  {{!-- console.log(userId) --}}
 })</script>
 </html>

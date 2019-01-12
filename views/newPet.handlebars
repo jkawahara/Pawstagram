@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-6 mx-auto">
         <div class="row">
-          <h1>Please Fill Out Your New Pet Information</h1>
+          <h2 class="text-center">Please Fill Out Your New Pet Information</h2>
           <form class="new-pet" style="width: 100%;" action="POST">
             {{!-- <div class="form-group">
               <label for="pet-user" class="bmd-label-floating">Your Owner ID:</label>
@@ -39,10 +39,30 @@
             </div>
             <button id="submit2" class="btn btn-primary float-right">Submit</button>
           </form>
-          <a href="/user"><button id="cancel" href="/user" style="margin-top: -65px;" class="btn btn-dark float-left">Cancel</button></a>          
-
-
+          <a href="/user"><button id="cancel" href="/user" style="margin-top: -65px;" class="btn btn-dark float-left">Cancel</button></a>
       </div>
+
+      <div class="col-lg-12 text-center">
+        <h3>Existing Pets:</h3>
+        <div class="row">
+          <div class="mx-auto mb-3" id="communities-container">
+            <ul class="nav nav-pills nav-pills-icons justify-content-center" id="pet-list" role="list-group">
+              {{#each pets}}
+                {{> pets/petList-block}}
+              {{/each}}
+            </ul>
+            {{!-- <ul id="pet-list" class="list-group">
+              {{#each pets}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="pet/{{this.id}}">{{this.name}}</a>
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul> --}}
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

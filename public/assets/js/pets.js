@@ -41,24 +41,17 @@ var API = {
 var refresh = function() {
   API.get().then(function(data) {
     var $pets = data.map(function(pet) {
+      var $li = $("<li>").attr({
+        "data-id": pet.id
+      });
+
       var $a = $("<a>")
         .text(pet.name)
-        .attr("href", "/pet/" + pet.id);
+        .attr("href", "/pet/" + pet.id)
+        .attr("class", "btn btn-primary btn-link btn-wd btn-lg")
+        .append($li);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": pet.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
+      return $a;
     });
 
     $petList.empty();
