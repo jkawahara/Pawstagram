@@ -10,6 +10,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+      <div>
+        {{user.Pets.[0].name}}
+      </div>
+      
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="dropdown nav-item">
@@ -22,12 +26,11 @@
               <i class="material-icons">pets</i> My Pets
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="#" class="dropdown-item">
-                Pet 1
-              </a>
-              <a href="#" class="dropdown-item">
-                Pet 2
-              </a>
+              {{#each user.Pets}}
+                <a href="../pet/{{id}}" class="dropdown-item">
+                  {{name}}
+                </a>
+              {{/each}}
             </div>
           </li>
           <li class="dropdown nav-item">
