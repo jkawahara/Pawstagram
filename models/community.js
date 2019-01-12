@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    },
+        },
     bio: {
       type: DataTypes.TEXT,
       allowNull: true
@@ -38,7 +38,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isUrl: true
       }
-    }
   });
 
   Community.associate = function(models) {
