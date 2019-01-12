@@ -10,38 +10,14 @@
   firebase.initializeApp(config);
   // Get a reference to the database service
   var database = firebase.database();
-  // database.settings(settings);
 
-// $(document).ready(function() {
-//     // This file just does a GET request to figure out which user is logged in
-//     // and updates the HTML on the page
-//     $.get("/api/comm").then(function(data) {
-//       $(".member-name").text(data.email);
-//     });
-//   });
-
-
-// $(document).on("ready", function() {
-//   $.get("api/user_data").then(function(data) {
-//       user = data.name;
-//       console.log(user)
-//   });
-// })
-
-// console.log(parseInt(window.location.pathname.slice(-1))
-// function addCommentData(communityId, text, name, time) {
-//   firebase.database().ref('communities/' + communityId).set({
-//     post: text,
-//     name: name,
-//     time: time
-//   });
-// };
 var user
 var community = window.location.pathname.split("/").pop()
 $.get("/api/users/", 
 function(data) {
   console.log(data)
   user = "Bob"
+  // need to somehow get username here to put on chat
 }).then(function() {
     
   });
@@ -53,6 +29,7 @@ function(data) {
       createdAt: moment().format("MM Do YYYY, h:mm:ss")
     };
     database.ref(community).push(message);
+  })
   //append new post to message board and clear the text box
   database.ref(community).on("child_added", snap=>{
     var text = $("<div>").attr("class", "col-lg-7 text-left").append(snap.val().text);
@@ -63,9 +40,3 @@ function(data) {
     $("#form10").val("")  
   })
   
-  
-})
-
-
-
-//on submit, push message to firebase
