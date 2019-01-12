@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
   // Get CURRENT user
-  app.get("/thisuser", function(req, res) {
+  app.get("/api/thisuser", function(req, res) {
     console.log(req.user);
     res.json(req.user);
   });
