@@ -99,7 +99,11 @@
         <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="members">
           <div class="row">
             <div id="members-container">
-              members-container
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                {{#each comm.Communities}}
+                  {{> userCommunities/communityMember-block}}
+                {{/each}}
+              </ul>
             </div>
           </div>
         </div>

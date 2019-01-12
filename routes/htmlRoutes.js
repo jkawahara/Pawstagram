@@ -85,6 +85,7 @@ module.exports = function(app) {
   // For testing model using starter views
   app.get("/comm/:id", function(req, res) {
     db.Community.findOne({
+      where: { id: req.params.id },
       include: [
         {
           model: db.User,
