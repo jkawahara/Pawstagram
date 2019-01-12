@@ -57,16 +57,16 @@
 
       <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="communities">
         <div class="row">
-          <div id="communities-container">
+          <div class="mx-auto" id="communities-container">
             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
               {{#each user.Communities}}
                 {{> userCommunities/userCommunity-block}}
               {{/each}}
             </ul>
           </div>
-          <div class="fix-to-bottom">
+          {{!-- <div class="fix-to-bottom">
             <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
-          </div>
+          </div> --}}
         </div>
       </div>
 
@@ -121,30 +121,5 @@
       </div>
     </div>
   </div>
-
-  <footer class="footer fixed-footer">
-    <div class="container">
-      <nav class="float-left">
-        <ul>
-          <li>
-            <a href="#">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              GitHub Repo
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright float-right font-roboto text-uppercase"><small class="font-white">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, Petstagram.</small>
-      </div>
-    </div>
-  </footer>
 </div>
 
