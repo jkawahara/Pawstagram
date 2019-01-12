@@ -63,13 +63,23 @@ module.exports = function(app) {
 
   // For testing model using starter views
   app.get("/user/:id", isAuthenticated, function(req, res) {
-    db.User.findOne({ where: { id: req.params.id }, include: [db.Pet] }).then(
-      function(dbUser) {
-        res.render("userprofile", {
-          user: dbUser
-        });
-      }
-    );
+    db.User.findOne({
+      where: { id: req.params.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.render("userprofile", {
+        user: dbUser
+      });
+    });
   });
 
   // For testing model using starter views

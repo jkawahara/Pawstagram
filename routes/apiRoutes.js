@@ -71,8 +71,8 @@ module.exports = function(app) {
   });
 
   // Get comm
-  app.get("/api/comm/:id", function(req, res) {
-    db.Community.findOne({}).then(function(dbComm) {
+  app.get("/api/comms/:id", function(req, res) {
+    db.Community.findOne({ where: { id: req.params.id } }).then(function(dbComm) {
       res.json(dbComm);
     });
   });
