@@ -1,6 +1,9 @@
 // Get references to page elements
 // Comms
 var $commName = $("#comm-name");
+var $commInfo = $("#comm-info");
+var $commLocation = $("#comm-location");
+var $commPhoto = $("#comm-photo");
 var $submitBtn = $("#submit");
 var $commList = $("#comm-list");
 
@@ -65,11 +68,14 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var comm = {
-    name: $commName.val().trim()
+    name: $commName.val().trim(),
+    bio: $commInfo.val().trim(),
+    location: $commLocation.val().trim(),
+    photoUrl: $commPhoto.val().trim()
   };
 
-  if (!comm.name) {
-    alert("You must enter name!");
+  if (!(comm.name && comm.bio && comm.location && comm.photoUrl)) {
+    alert("You must enter a value for all forms!");
     return;
   }
 
@@ -78,6 +84,9 @@ var handleFormSubmit = function(event) {
   });
 
   $commName.val("");
+  $commInfo.val("");
+  $commLocation.val("");
+  $commPhoto.val("");
 };
 
 // handleDeleteBtnClick is called when an comm's delete button is clicked

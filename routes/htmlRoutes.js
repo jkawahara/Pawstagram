@@ -45,14 +45,14 @@ module.exports = function(app) {
 
   app.get("/newcomm", function(req, res) {
     db.Community.findAll({ raw: true }).then(function(dbComms) {
-      res.render("commtest", {
+      res.render("newComm", {
         msg: "Welcome!",
         comms: dbComms
       });
     });
   });
 
-  app.get("/newpet", function(req, res) {
+  app.get("/newpet", isAuthenticated, function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
       res.render("newPet", {
         msg: "Welcome!",
