@@ -25,7 +25,7 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/user", isAuthenticated, function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/user-page.html"));
-   res.redirect("/user/" + req.user.id)
+    res.redirect("/user/" + req.user.id);
   });
 
   // Load pet-page
@@ -63,13 +63,23 @@ module.exports = function(app) {
 
   // For testing model using starter views
   app.get("/user/:id", isAuthenticated, function(req, res) {
-    db.User.findOne({ where: { id: req.params.id }, include: [db.Pet] }).then(
-      function(dbUser) {
-        res.render("userprofile", {
-          user: dbUser
-        });
-      }
-    );
+    db.User.findOne({
+      where: { id: req.params.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.render("userprofile", {
+        user: dbUser
+      });
+    });
   });
 
   // For testing model using starter views

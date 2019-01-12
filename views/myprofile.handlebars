@@ -47,7 +47,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">
+          <a class="nav-link" href="./login-page.html">
               <i class="fas fa-sign-out-alt"></i> Sign Out
           </a>
         </li>
@@ -63,13 +63,14 @@
         <div class="row">
           <div class="col-lg-3 mt-3 mr-3 ml-3 mb-3 text-center">
             <img class="mb-3 rounded-circle border border-purple" src="{{user.userPhotoUrl}}" style="width: 100%; border-width: 4px !important;">
-            <a href="#pablo" class="btn btn-primary mr-3"><i class="fa fa-envelope"></i></a>
-            <a href="#pablo" class="btn btn-primary"><i class="fa fa-address-card"></i></a>
-            <a href="#pablo" class="btn btn-primary"><i class="fas fa-user-plus"></i></a>
+            <a href="#pablo" class="btn btn-primary mr-3"><i class="fas fa-user-edit"></i></a>
+            {{!-- <a href="#pablo" class="btn btn-primary"><i class="fa fa-address-card"></i></a>
+            <a href="#pablo" class="btn btn-primary"><i class="fas fa-user-plus"></i></a> --}}
           </div>
           <div class="col-lg-8 mt-3 mr-3 ml-3 mb-3">
             <h2>{{user.name}} <small class="ml-2"><small>{{user.location}}</small></small></h2>
             <p> {{user.bio}} </p>
+            <p> {{user.id}}</p>
           </div>
         </div>
       </div>
@@ -101,11 +102,9 @@
       <div class="tab-pane active text-center gallery col-lg-10 mx-auto" id="pets">
         <div class="row">
           <div id="pets-container">
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-              {{#each user.Pets}}
-                {{> pets/pet-block}}
-              {{/each}}
-            </ul>
+            {{#each user.Pets}}
+              {{> pets/pet-block}}
+            {{/each}}
           </div>
           {{!-- <div class="fix-to-bottom">
             <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
@@ -116,11 +115,7 @@
       <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="communities">
         <div class="row">
           <div id="communities-container">
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-              {{#each user.Communities}}
-                {{> userCommunities/userCommunity-block}}
-              {{/each}}
-            </ul>
+            communities-container
           </div>
           <div class="fix-to-bottom">
             <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
@@ -205,4 +200,3 @@
     </div>
   </footer>
 </div>
-
