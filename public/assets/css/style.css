@@ -74,3 +74,8 @@ body {
     bottom: 0px;
     right: 0px;
 }
+
+#message-container {
+    height: 400px;
+    overflow-y: scroll;
+}

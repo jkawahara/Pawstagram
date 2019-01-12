@@ -43,6 +43,11 @@
 <script src="../../assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
    <script src="../../assets/js/community-page.js"></script>
 <script>
+var messageScroll = $('#message-container')
+    messageScroll.animate({
+        scrollTop: messageScroll.get(0).scrollHeight   
+    }, 0);
+
   $(document).ready(function() {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();

@@ -25,17 +25,21 @@ function(data) {
     var message = {
       text: $("#form10").val().trim(),
       user: user,
-      createdAt: moment().format("MM Do YYYY, h:mm:ss")
+      createdAt: moment().format("MM DD YYYY, HH:mm:ss")
     };
+    console.log(message)
     database.ref(community).push(message);
   })
   //append new post to message board and clear the text box
   database.ref(community).on("child_added", snap=>{
+    console.log(snap.val().createdAt)
     var text = $("<div>").attr("class", "col-lg-7 text-left").append(snap.val().text);
-    var timeSince = $("<small>").append(snap.val().createdAt);
-    var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user, " " ,moment(timeSince).fromNow());
+    // var timeSince = $("<small>").append(snap.val().createdAt);
+    var timestamp = moment().diff(moment(snap.val().createdAt), "minutes")
+    var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user, " " , timestamp + " minutes ago");
     var post = $("<li>").attr("class", "list-group-item border rounded mt-3").append(text, user);
     $("#message-container").prepend(post);
     $("#form10").val("")  
   })
-  
+
+  console.log(childSnapshot.val());
