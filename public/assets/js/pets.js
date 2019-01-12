@@ -99,8 +99,8 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.post(pet).then(function(res) {
-    res.redirect("/user");
+  API.post(pet).then(function() {
+    refresh();
   });
 
   $petUser.val("");
