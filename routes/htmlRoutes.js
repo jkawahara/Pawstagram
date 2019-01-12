@@ -43,7 +43,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/index3", function(req, res) {
+  app.get("/newcomm", function(req, res) {
     db.Community.findAll({ raw: true }).then(function(dbComms) {
       res.render("commtest", {
         msg: "Welcome!",
@@ -52,7 +52,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/index2", function(req, res) {
+  app.get("/newpet", function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
       res.render("pettest", {
         msg: "Welcome!",
@@ -110,6 +110,26 @@ module.exports = function(app) {
     }).then(function(dbPets) {
       res.render("petprofile", {
         pets: dbPets
+      });
+    });
+  });
+
+  app.get("/myprofile/:id", isAuthenticated, function(req, res) {
+    db.User.findOne({
+      where: { id: req.params.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.render("myprofile", {
+        user: dbUser
       });
     });
   });
