@@ -55,13 +55,23 @@ module.exports = function(app) {
 
   // Get all comms
   app.get("/api/comms", function(req, res) {
-    db.Community.findAll({}).then(function(dbComm) {
+    db.Community.findAll({
+      include: [
+        {
+          model: db.User,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name", "userPhotoUrl"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbComm) {
       res.json(dbComm);
     });
   });
 
   // Get comm
-  app.get("/api/comms/:id", function(req, res) {
+  app.get("/api/comm/:id", function(req, res) {
     db.Community.findOne({}).then(function(dbComm) {
       res.json(dbComm);
     });
