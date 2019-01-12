@@ -13,10 +13,9 @@
 
 var user
 var community = window.location.pathname.split("/").pop()
-$.get("/api/users/", 
+$.get("/thisuser", 
 function(data) {
-  console.log(data)
-  user = "Bob"
+  user = data.name
   // need to somehow get username here to put on chat
 }).then(function() {
     
