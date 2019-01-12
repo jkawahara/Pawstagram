@@ -19,6 +19,12 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
+  
+  // Get CURRENT user
+  app.get('/thisuser', function(req, res) {
+    console.log(req.user)
+    res.json(req.user);
+});
 
   // Get user
   app.get("/api/users/:id", function(req, res) {
@@ -72,7 +78,17 @@ module.exports = function(app) {
 
   // Get comm
   app.get("/api/comm/:id", function(req, res) {
-    db.Community.findOne({}).then(function(dbComm) {
+    db.Community.findOne({
+      include: [
+        {
+          model: db.User,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name", "userPhotoUrl"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbComm) {
       res.json(dbComm);
     });
   });

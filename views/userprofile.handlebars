@@ -45,11 +45,11 @@
       <div class="tab-pane active text-center gallery col-lg-10 mx-auto" id="pets">
         <div class="row">
           <div id="pets-container">
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+            {{!-- <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist"> --}}
               {{#each user.Pets}}
                 {{> pets/pet-block}}
               {{/each}}
-            </ul>
+            {{!-- </ul> --}}
           </div>
           {{!-- <div class="fix-to-bottom">
             <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
