@@ -3,7 +3,10 @@
 var $petUser = $("#pet-user");
 var $petName = $("#pet-name");
 var $petSpecies = $("#pet-species");
+var $petBreed = $("#pet-breed");
+var $petSize = $("#pet-size");
 var $petAge = $("#pet-age");
+var $petBio = $("#pet-bio");
 var $petProfPic = $("#pet-prof-pic");
 var $submitBtn = $("#submit2");
 var $petList = $("#pet-list");
@@ -69,16 +72,30 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var pet = {
-    UserId: parseInt($petUser.val().trim()),
+    UserId: userId,
     name: $petName.val().trim(),
     species: $petSpecies.val().trim(),
+    breed: $petBreed.val().trim(),
+    size: $petSize.val().trim(),
     age: parseInt($petAge.val().trim()),
+    bio: $petBio.val().trim(),
     profPic: $petProfPic.val().trim()
   };
   console.log(pet);
 
-  if (!(pet.UserId && pet.name && pet.species && pet.age && pet.profPic)) {
-    alert("You must enter user ID, name, species, age and profile pic!");
+  if (
+    !// pet.UserId &&
+    (
+      pet.name &&
+      pet.species &&
+      pet.breed &&
+      pet.size &&
+      pet.age &&
+      pet.bio &&
+      pet.profPic
+    )
+  ) {
+    alert("You must enter values for all forms!");
     return;
   }
 
@@ -89,7 +106,10 @@ var handleFormSubmit = function(event) {
   $petUser.val("");
   $petName.val("");
   $petSpecies.val("");
+  $petBreed.val("");
+  $petSize.val("");
   $petAge.val("");
+  $petBio.val("");
   $petProfPic.val("");
 };
 
