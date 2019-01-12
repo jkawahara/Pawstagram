@@ -1,129 +1,51 @@
 <div class="container">
   <div class="main main-raised top-margin bottom-margin">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-6 mx-auto">
         <div class="row">
-          <div class="col-lg-3 mt-3 mr-3 ml-3 mb-3 text-center">
-            <img class="mb-3 rounded-circle border border-purple" src="{{user.userPhotoUrl}}" style="width: 100%; border-width: 4px !important;">
-            <a href="#pablo" class="btn btn-primary mr-3"><i class="fas fa-user-edit mr-2"></i>EDIT MY PROFILE</a>
-            {{!-- <a href="#pablo" class="btn btn-primary"><i class="fa fa-address-card"></i></a>
-            <a href="#pablo" class="btn btn-primary"><i class="fas fa-user-plus"></i></a> --}}
-          </div>
-          <div class="col-lg-8 mt-3 mr-3 ml-3 mb-3">
-            <h2>{{user.name}} <small class="ml-2"><small>{{user.location}}</small></small></h2>
-            <p> {{user.bio}} </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 ml-auto mr-auto">
-        <div class="profile-tabs mb-3">
-          <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" href="#pets" role="tab" data-toggle="tab">
-                <i class="material-icons">pets</i> Pets
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#communities" role="tab" data-toggle="tab">
-                <i class="material-icons">group_work</i> Communities
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
-                <i class="material-icons">favorite</i> Favorites
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="tab-content tab-space">
-      <div class="tab-pane active text-center gallery col-lg-10 mx-auto" id="pets">
-        <div class="row">
-          <div class="mx-auto">
-            <a href="/newpet" class="btn btn-info mb-3 btn-wd btn-lg">Add New Pet</a>
-          </div>
-        </div>
-        <div class="row">
-          <div id="pets-container">
-            {{#each user.Pets}}
-              {{> pets/pet-block}}
-            {{/each}}
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="communities">
-        <div class="row">
-          <div class="mx-auto">
-            <a href="/newcomm" class="btn btn-info mb-3 btn-wd btn-lg">Add Community</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="mx-auto" id="communities-container">
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-              {{#each user.Communities}}
-                {{> userCommunities/userCommunity-block}}
-              {{/each}}
-            </ul>
-          </div>
-          {{!-- <div class="fix-to-bottom">
-            <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
-          </div> --}}
-        </div>
-      </div>
-
-      <div class="tab-pane text-center gallery col-lg-10 mx-auto" id="favorite">
-          <div class="row">
-            <div id="favorites-container">
-              <div class="col-lg-10 mx-auto">
-                <div class="row">
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://66.media.tumblr.com/45a28fbddc5b75da42ddc8674002399f/tumblr_osip4zQBfe1qh6pbfo1_1280.jpg" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/2d36e011323a4a3dcbb17bef942ba2bc.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/05863dfeaa07e2512e43f05a6410cf88.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/029cfbdf0b5edc1d9ad73aec40713fe5.jpg" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/9417df045186cade42d801ee0162d337.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/ac3172e2d2053bdc4f76f1ad7e5423c2.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/53bbfe113fbd7e8121aeab5b02f5c280.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/2b9dfb9eb6e31690f1dc4f763a37883a.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/1b9115974b4ca391c88d87568cbad7cc.jpg" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/a81c1daeec39faca9f9f2536848f1748.jpg" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/ce287212562dd9fc571254fb676e94cb.png" style="width: 100%">
-                  </div>
-                  <div class="col-md-3">
-                    <img class="rounded border border-3 border-purple mb-3" src="https://i.gyazo.com/443c80a5548633b65c03a4219a5813a2.png" style="width: 100%">
-                  </div>
-                </div>
-              </div>
+          <h1>Please Fill Out Your New Pet Information</h1>
+          <form class="new-pet" style="width: 100%;" action="POST">
+            {{!-- <div class="form-group">
+              <label for="pet-user" class="bmd-label-floating">Your Owner ID:</label>
+              <input type="text" id="pet-user" class="form-control" aria-describedby="pet-user" placeholder="">
+            </div> --}}
+            <div class="form-group">
+              <label for="pet-name" class="bmd-label-floating">Pet Name:</label>
+              <input type="text" id="pet-name" class="form-control" aria-describedby="pet-name" placeholder="">
             </div>
-            <div class="fix-to-bottom">
-              <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
+            <div class="form-group">
+              <label for="pet-species" class="bmd-label-floating">Pet Species</label>
+              <input type="text" id="pet-species" class="form-control" aria-describedby="pet-species" placeholder="">
             </div>
-          </div>
+            <div class="form-group">
+              <label for="pet-breed" class="bmd-label-floating">Pet Breed</label>
+              <input type="text" id="pet-breed" class="form-control" aria-describedby="pet-breed" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="pet-size" class="bmd-label-floating">Pet Size</label>
+              <input type="text" id="pet-size" class="form-control" aria-describedby="pet-size" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="pet-age" class="bmd-label-floating">Pet Age</label>
+              <input type="text" id="pet-age" class="form-control" aria-describedby="pet-age" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="pet-bio" class="bmd-label-floating">Pet Bio</label>
+              <input type="text" id="pet-bio" class="form-control" aria-describedby="pet-bio" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="pet-prof-pic" class="bmd-label-floating">Pet Photo URL</label>
+              <input type="text" id="pet-prof-pic" class="form-control" aria-describedby="pet-prof-pic" placeholder="">
+            </div>
+            <button id="submit2" class="btn btn-primary float-right">Submit</button>
+          </form>
+          <a href="/user"><button id="cancel" href="/user" style="margin-top: -65px;" class="btn btn-dark float-left">Cancel</button></a>          
+
+
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/pets.js"></script>

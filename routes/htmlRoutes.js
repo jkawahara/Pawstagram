@@ -25,7 +25,7 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/user", isAuthenticated, function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/user-page.html"));
-    res.redirect("/user/" + req.user.id);
+    res.redirect("/myprofile/" + req.user.id);
   });
 
   // Load pet-page
@@ -54,7 +54,7 @@ module.exports = function(app) {
 
   app.get("/newpet", function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
-      res.render("pettest", {
+      res.render("newPet", {
         msg: "Welcome!",
         pets: dbPets
       });
