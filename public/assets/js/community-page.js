@@ -8,7 +8,6 @@
     messagingSenderId: "646710545726"
   };
   firebase.initializeApp(config);
-
   // Get a reference to the database service
   var database = firebase.database();
   // database.settings(settings);
@@ -40,7 +39,7 @@ var user = "test";
 
 
 //on submit, push message to firebase
-$("#postComment").on("click", e=>{
+$(".testing").on("click", e=>{
   e.preventDefault();
   var message = {
     text: $("#form10").val().trim(),
@@ -56,7 +55,7 @@ database.ref("1").on("child_added", snap=>{
   var timeSince = $("<small>").append(snap.val().createdAt);
   var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user, " " ,moment(timeSince).fromNow());
   var post = $("<li>").attr("class", "list-group-item border rounded mt-3").append(text, user);
-  $("#board").prepend(post);
+  $("#message-container").prepend(post);
   $("#form10").val("")  
 })
 
