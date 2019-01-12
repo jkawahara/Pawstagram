@@ -37,9 +37,11 @@ function(data) {
   //append new post to message board and clear the text box
   database.ref(community).on("child_added", snap=>{
     var text = $("<div>").attr("class", "col-lg-7 text-left").append(snap.val().text);
-    var timestamp = moment().diff(moment(snap.val().createdAt), "minutes")
-    var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user, " " , timestamp + " minutes ago");
-    var post = $("<li>").attr("class", "list-group-item border rounded mt-3").append(text, user);
+    var timestamp = moment().diff(moment(snap.val().createdAt), "hours")
+    var user = $("<div>").attr("class", "col-lg-4 text-right ml-auto").append(snap.val().user);
+    var timesince = $("<small>").attr("class", "text-right").append(" ", timestamp + " hours ago");
+    var postInfo = user.append(timesince);
+    var post = $("<li>").attr("class", "list-group-item border rounded mt-3").append(text, postInfo);
     $("#message-container").prepend(post);
     $("#form10").val("")  
   });
