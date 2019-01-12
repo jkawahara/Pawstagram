@@ -10,10 +10,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <div>
-        {{user.Pets.[0].name}}
-      </div>
-      
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="dropdown nav-item">
@@ -38,15 +34,11 @@
               <i class="material-icons">group_work</i> My Communities
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="#" class="dropdown-item">
-                Community 1
-              </a>
-              <a href="#" class="dropdown-item">
-                Community 2
-              </a>
-              <a href="#" class="dropdown-item">
-                Community 3
-              </a>
+              {{#each user.Communities}}
+                <a href="../comm/{{id}}" class="dropdown-item">
+                  {{name}}
+                </a>
+              {{/each}}
             </div>
           </li>
           <li class="nav-item">
