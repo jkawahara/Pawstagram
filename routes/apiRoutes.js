@@ -4,14 +4,37 @@ var passport = require("../config/passport");
 module.exports = function(app) {
   // Get all users
   app.get("/api/users", function(req, res) {
-    db.User.findAll({ include: [db.Pet] }).then(function(dbUser) {
+    db.User.findAll({
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
   // Get user
   app.get("/api/users/:id", function(req, res) {
-    db.User.findOne({ include: [db.Pet] }).then(function(dbUser) {
+    db.User.findOne({
+      where: { id: req.params.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
       res.json(dbUser);
     });
   });
@@ -92,7 +115,7 @@ module.exports = function(app) {
       res.json(dbPets);
     });
   });
-  
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
@@ -114,5 +137,21 @@ module.exports = function(app) {
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
+  });
+
+  app.get("/api/test2", function(req, res) {
+    db.User.findAll({
+      include: [
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
   });
 };
