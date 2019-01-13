@@ -177,7 +177,6 @@ module.exports = function(app) {
       });
   });
 
-
   app.get("/myprofile/:id", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.User.findOne({
@@ -193,10 +192,10 @@ module.exports = function(app) {
         }
       ]
     }).then(function(dbUser) {
-          res.render("myprofile", {
-            user: dbUser,
-            thisUser: dbUser
-          });
-        });
+      res.render("myprofile", {
+        user: dbUser,
+        thisUser: dbUser
       });
+    });
+  });
 };
