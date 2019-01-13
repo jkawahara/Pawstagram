@@ -69,7 +69,6 @@ var messageScroll = $('#message-container')
       }
   }
 
-
   $(document).ready(function() {
     $('#facebook').sharrre({
       share: {
@@ -123,5 +122,13 @@ var messageScroll = $('#message-container')
   });
     
 </script>
+
+<script>var userid
+$.get("/api/thisuser", 
+function(data) {
+  userId = data.id
+  console.log(userId)
+})</script>
+
 
 </html>
