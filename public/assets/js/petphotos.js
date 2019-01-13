@@ -2,19 +2,21 @@ var $petPhotoUrl = $("#pet-photo-url");
 var $submitBtn = $("#submit");
 
 var currentPetId = window.location.pathname.split("/").pop();
-console.log(currentPetId)
+console.log(currentPetId);
 var handleFormSubmit = function(event) {
   event.preventDefault();
-  console.log("something")
+  console.log("something");
   var petPhoto = {
-    PetId : currentPetId,
+    PetId: currentPetId,
     url: $petPhotoUrl.val().trim()
   };
   if (!petPhoto.url) {
     alert("You must enter a value!");
     return;
   }
-
+  API.post(petPhoto).then(function() {
+    refresh();
+  });
   $petPhotoUrl.val("");
 };
 $submitBtn.on("click", handleFormSubmit);
@@ -31,6 +33,7 @@ var API = {
       data: JSON.stringify(petPhoto)
     }).then(function() {
       alert("Added your pet photo!");
+      location.reload();
     });
   },
   // get: function() {
@@ -52,7 +55,6 @@ var API = {
   //   var idToDelete = $(this)
   //     .parent()
   //     .attr("data-id");
-  
   //   API.deleteExample(idToDelete).then(function() {
   //     refreshExamples();
   //   });

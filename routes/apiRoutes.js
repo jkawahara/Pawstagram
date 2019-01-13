@@ -142,22 +142,21 @@ module.exports = function(app) {
     });
   });
 
-    // Create a new pet photo
-    app.post("/api/petphotos", function(req, res) {
-      console.log(req.body)
-      db.PetPhoto.create(req.body).then(function(dbPetPhotos) {
-        res.json(dbPetPhotos);
-      });
+  // Create a new pet photo
+  app.post("/pet/api/petphotos", function(req, res) {
+    db.PetPhoto.create(req.body).then(function(dbPetPhotos) {
+      res.json(dbPetPhotos);
     });
+  });
 
-    // Delete a pet photo
-    app.delete("/api/comms/:id", function(req, res) {
-      db.PetPhotos.destroy({ where: { id: req.params.id } }).then(function(
-        dbPetPhotos
-      ) {
-        res.json(dbPetPhotos);
-      });
+  // Delete a pet photo
+  app.delete("/api/comms/:id", function(req, res) {
+    db.PetPhotos.destroy({ where: { id: req.params.id } }).then(function(
+      dbPetPhotos
+    ) {
+      res.json(dbPetPhotos);
     });
+  });
 
   // If the user has valid login credentials, send them to the members page.
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
