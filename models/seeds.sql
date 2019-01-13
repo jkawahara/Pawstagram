@@ -1,4 +1,4 @@
-USE petstagram_db;
+USE pawstagram_db;
 
 INSERT INTO Communities (name)
 VALUES ("comm1"), ("comm2"), ("comm3");

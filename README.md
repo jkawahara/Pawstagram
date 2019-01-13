@@ -3,7 +3,7 @@
 ### 1. Why / Background
   * This is Berkeley Coding Boot Camp (BCBC) project 2 group 6.
     * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack to teach web development skills across the client and server. 
-  * Petstagram is a full-stack social media web based application that enable users to show off photos of their pets, comment on each other’s pets and join communities with other like minded individuals to chat with and meet up with. Communities can be anything from "San Francisco Dog Joggers" to "Cats wearing Hats" and are user-created.
+  * Pawstagram is a full-stack social media web based application that enable users to show off photos of their pets, comment on each other’s pets and join communities with other like minded individuals to chat with and meet up with. Communities can be anything from "San Francisco Dog Joggers" to "Cats wearing Hats" and are user-created.
  ### 2. What / Objectives / User Stories
   * From design through deployment of the application, this project used the following web development technologies:
     * Server-side: Node.js w/ Express web app framework; MySQL & Firebase DBs for data persistence w/ Sequelize ORM; Passport for user authentication
@@ -20,18 +20,18 @@
     * [Projects](https://github.com/sgenini/projectTwo/projects/1): Kanban board for documenting user stories and overall progress
     * [Issues](https://github.com/sgenini/projectTwo/issues): Issue tracking for user stories, features and bug report
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
-    * Design Description ![petstagram_architecture.png](public/assets/readme_links/petstagram_architecture.png "achitecture")
+    * Design Description ![architecture.png](public/assets/readme_links/architecture.png "achitecture")
       * Application Setup (server.js)
         * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 3000. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
         * Required modules: npm (dotenv, express, express-handlebars), path
         * Relevant functions: require(), use(), engine(), set(), sync(), listen()
         * Export: app
       * Database Setup (schema.sql, seeds.sql TBD)
-        * Create petstagram_db database
+        * Create pawstagram_db database
         * Available Seed with TBD
       * Configuration Definition (config.json)
         * Define configuration object with nested development, test and production environments
-      * Model Setup (/models, index.js) ![petstagram_model.png](public/assets/readme_links/petstagram_model.png "model")
+      * Model Setup (/models, index.js) ![model.png](public/assets/readme_links/model.png "model")
         * Define Sequelize version of Community, User, Pet, PetPhoto, PhotoPost objects including associations
         * TBD Configure connection to MySQL configuration
         * TBD Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
@@ -112,8 +112,8 @@
               * pets.js
               * users.js
             * /readme_links
-              * petstagram_architecture.png
-              * petstagram_model.png
+              * architecture.png
+              * model.png
             * /scss (various)
           * community-page.html
           * home-page.html
@@ -131,15 +131,19 @@
           * /layouts
             * main.handlebars
           * /partials
-            * TBD
+            * /footer
+            * /nav
+            * /petPhotos
+            * /pets
+            * /userCommunities
           * 404.handlebars
           * comm.handlebars
-          * commtest.handlebars
+          * myprofile.handlebars
+          * newComm.handlebars
+          * newPet.handlebars
           * pet.handlebars
           * petprofile.handlebars
-          * pettest.handlebars
           * user.handlebars
-          * usertest.handlebars
           * userprofile.handlebars 
         * .eslintignore
         * .eslintrc.json
@@ -158,7 +162,7 @@
     * Unit testing was informally executed
     * Continuous Integration was practiced by merging smaller code changes frequently and, prior to deployment, leveraging [Travis CI](https://docs.travis-ci.com/user/tutorial/) to carry out a series of automated tasks to build and test the code
   * Deployment:
-    * App deployed on [Heroku](https://pets-tagram.herokuapp.com/)
+    * App deployed on [Heroku](https://pawstagram.herokuapp.com/)
  ## Versioning
   * For the versions available, see the tags on this repository.
  ## Authors
