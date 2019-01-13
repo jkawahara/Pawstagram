@@ -3,7 +3,6 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  var user;
   // Load sign up page
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
@@ -68,6 +67,7 @@ module.exports = function(app) {
     });
   });
 
+  var user;
   app.get("/user/:id", isAuthenticated, function(req, res) {
     db.User.findOne({
       where: { id: req.params.id },
