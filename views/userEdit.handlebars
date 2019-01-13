@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="main main-raised top-margin bottom-margin">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="row">
+          <h2 class="text-center">Please Fill Out Your Information</h2>
+          <form class="new-user" style="width: 100%;" action="POST">
+            <div class="form-group">
+              <label for="user-bio" class="bmd-label-floating">Your Bio</label>
+              <input type="text" id="user-bio" class="form-control" aria-describedby="user-bio" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="user-photo-url" class="bmd-label-floating">Your Photo URL</label>
+              <input type="text" id="user-photo-url" class="form-control" aria-describedby="user-photo-url" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="user-location" class="bmd-label-floating">Your Location</label>
+              <input type="text" id="user-location" class="form-control" aria-describedby="user-location" placeholder="">
+            </div>
+            <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </form>
+          <a href="/user"><button id="cancel" href="/user" style="margin-top: -65px;" class="btn btn-dark float-left">Cancel</button></a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/edituser.js"></script>

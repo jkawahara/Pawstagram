@@ -52,6 +52,18 @@ module.exports = function(app) {
     });
   });
 
+  // Edit a user
+  app.put("/api/useredit", function(req, res) {
+    console.log(req.body);
+    db.User.update(req.body, {
+      where: {
+        id: req.user.id
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
   // Delete a user by id
   app.delete("/api/users/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
