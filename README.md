@@ -1,10 +1,11 @@
-# Petstagram
+# Pawstagram
+### Live Version of App: [Pawstagram](https://pawstagram.herokuapp.com/)
 ### 1. Why / Background
-  * This is Berkeley Coding Boot Camp (BCBC) project 2 by group 6.
-    * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack, to teach web development skills across the client and server. 
-  * Petstagram is a full-stack social media web based application that enable users to post photos of their pets instead of themselves, comment on each other’s pets and join communities for meetups such as dog parks, breed enthusiasts, etc.
+  * This is Berkeley Coding Boot Camp (BCBC) project 2 group 6.
+    * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack to teach web development skills across the client and server. 
+  * Petstagram is a full-stack social media web based application that enable users to show off photos of their pets, comment on each other’s pets and join communities with other like minded individuals to chat with and meet up with. Communities can be anything from "San Francisco Dog Joggers" to "Cats wearing Hats" and are user-created.
  ### 2. What / Objectives / User Stories
-  * This project development, from design through deployment of the application, used the following web development technologies:
+  * From design through deployment of the application, this project used the following web development technologies:
     * Server-side: Node.js w/ Express web app framework; MySQL & Firebase DBs for data persistence w/ Sequelize ORM; Passport for user authentication
     * Client-side: Handlebars.js templating system for views; Material Bootstrap framework for HTML/CSS
   * User Stories, by categorization:
