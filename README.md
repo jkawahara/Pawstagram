@@ -20,39 +20,58 @@
     * [Projects](https://github.com/sgenini/projectTwo/projects/1): Kanban board for documenting user stories and overall progress
     * [Issues](https://github.com/sgenini/projectTwo/issues): Issue tracking for user stories, features and bug report
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
-    * Design Description ![architecture.png](public/assets/readme_links/architecture.png "achitecture")
-      * Application Setup (server.js)
-        * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 3000. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
-        * Required modules: npm (dotenv, express, express-handlebars), path
-        * Relevant functions: require(), use(), engine(), set(), sync(), listen()
-        * Export: app
-      * Database Setup (schema.sql, seeds.sql TBD)
-        * Create pawstagram_db database
-        * Available Seed with TBD
-      * Configuration Definition (config.json)
-        * Define configuration object with nested development, test and production environments
-      * Model Setup (/models, index.js) ![model.png](public/assets/readme_links/model.png "model")
-        * Define Sequelize version of Community, User, Pet, PetPhoto, PhotoPost objects including associations
-        * TBD Configure connection to MySQL configuration
-        * TBD Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
-        * Required modules: fs, path, sequelize, config.json
-        * Relevant functions: require(), readdirSync(), filter(), forEach(), import(), join(), keys(), associate(), exports(), define(), belongsToMany(), hasMany(), belongsTo()
-        * Export: db, Community, Pet, PetPhoto, PhotoPost, User
-      * Posts Model Setup (TBD)
-        * Define Firebase Realtime version of Posts object
-      * Controller Setup (apiRoutes.js, htmlRoutes.js)
-        * Assign routing views <-> model <-> DB as HTTP methods <-> CRUD operations <-> SQL
-          * POST <-> Create <-> INSERT
-          * GET <-> Read <-> SELECT
-          * PUT <-> Update <-> UPDATE
-          * DELETE <-> Delete <-> DELETE
-        * Required modules: /models, path
-        * Relevant functions: require(), exports(), get(), findAll(), findOne(), post(), create(), put(), update(), delete(), destroy(), sendFile(), render()
-        * Export: router, function(app) {}
-      * View Setup (server-side: main, 404, comm, commtest, pet, petprofile, pettest, user, userprofile, usertest.handlebars, client-side: community, home, login, pet, signup, user-page.html, /assets)
-        * Use Handlebars.js as web templating system for main layout
-        * TBD main.handlebars: include boilerplate HTML5 doctype and viewport meta tag along with Bootstrap CSS and jQuery
-        * TBD index.handlebars: use Bootstrap grid layout for positioning burgers 2 columns based on devoured state and form (add new burger)
+    * Wireframe
+      * Home ![homepage.png](public/assets/readme_links/homepage.png "homepage")
+        * Describe functionality...
+      * Signup ![signup.png](public/assets/readme_links/signup.png "signup")
+        * Describe functionality...
+      * Login ![login.png](public/assets/readme_links/login.png "login")
+        * Describe functionality...
+      * My Profile ![myprofile.png](public/assets/readme_links/myprofile.png "myprofile")
+        * Describe functionality...
+      * Pet Profile ![petprofile.png](public/assets/readme_links/petprofile.png "petprofile")
+        * Describe functionality...
+      * Add Pet ![addpet.png](public/assets/readme_links/addpet.png "addpet")
+        * Describe functionality...
+      * User View ![userview.png](public/assets/readme_links/userview.png "userview")
+        * Describe functionality...
+      * Community Posts ![communityposts.png](public/assets/readme_links/communityposts.png "communityposts")
+        * Describe functionality...
+      * Add Community ![addcommunity.png](public/assets/readme_links/addcommunity.png "addcommunity")
+        * Describe functionality...
+  * Design Description ![architecture.png](public/assets/readme_links/architecture.png "achitecture")
+    * Application Setup (server.js)
+      * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 3000. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
+      * Required modules: npm (dotenv, express, express-handlebars), path
+      * Relevant functions: require(), use(), engine(), set(), sync(), listen()
+      * Export: app
+    * Database Setup (schema.sql, seeds.sql TBD)
+      * Create pawstagram_db database
+      * Available Seed with TBD
+    * Configuration Definition (config.json)
+      * Define configuration object with nested development, test and production environments
+    * Model Setup (/models, index.js) ![model.png](public/assets/readme_links/model.png "model")
+      * Define Sequelize version of Community, User, Pet, PetPhoto, PhotoPost objects including associations
+      * TBD Configure connection to MySQL configuration
+      * TBD Include connection conditional to enable MySQL with Heroku deployment using JawsDB add-on
+      * Required modules: fs, path, sequelize, config.json
+      * Relevant functions: require(), readdirSync(), filter(), forEach(), import(), join(), keys(), associate(), exports(), define(), belongsToMany(), hasMany(), belongsTo()
+      * Export: db, Community, Pet, PetPhoto, PhotoPost, User
+    * Posts Model Setup (TBD)
+      * Define Firebase Realtime version of Posts object
+    * Controller Setup (apiRoutes.js, htmlRoutes.js)
+      * Assign routing views <-> model <-> DB as HTTP methods <-> CRUD operations <-> SQL
+        * POST <-> Create <-> INSERT
+        * GET <-> Read <-> SELECT
+        * PUT <-> Update <-> UPDATE
+        * DELETE <-> Delete <-> DELETE
+      * Required modules: /models, path
+      * Relevant functions: require(), exports(), get(), findAll(), findOne(), post(), create(), put(), update(), delete(), destroy(), sendFile(), render()
+      * Export: router, function(app) {}
+    * View Setup (server-side: main, 404, comm, commtest, pet, petprofile, pettest, user, userprofile, usertest.handlebars, client-side: community, home, login, pet, signup, user-page.html, /assets)
+      * Use Handlebars.js as web templating system for main layout
+      * TBD main.handlebars: include boilerplate HTML5 doctype and viewport meta tag along with Bootstrap CSS and jQuery
+      * TBD index.handlebars: use Bootstrap grid layout for positioning
   * Prerequisites for Development:
     * MacBook Air (Intel Core i7, 2.2 GHz, 1 Processor, 2 Cores, 8GB)
     * 64 bit operating system 
@@ -111,9 +130,7 @@
               * material-kit.js.js
               * pets.js
               * users.js
-            * /readme_links
-              * architecture.png
-              * model.png
+            * /readme_links/ (various)
             * /scss (various)
           * community-page.html
           * home-page.html
