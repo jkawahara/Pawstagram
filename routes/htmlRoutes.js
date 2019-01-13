@@ -67,7 +67,6 @@ module.exports = function(app) {
     });
   });
 
-  // For testing model using starter views
   app.get("/user/:id", isAuthenticated, function(req, res) {
     db.User.findOne({
       where: { id: req.params.id },
@@ -107,7 +106,6 @@ module.exports = function(app) {
       });
   });
 
-  // For testing model using starter views
   var comm;
   app.get("/comm/:id", function(req, res) {
     db.Community.findOne({
@@ -147,17 +145,37 @@ module.exports = function(app) {
       });
   });
 
-  // For testing model using starter views
+  var pet;
   app.get("/pet/:id", function(req, res) {
     db.Pet.findOne({
       where: { id: req.params.id },
       include: [db.User, db.PetPhoto]
-    }).then(function(dbPets) {
-      res.render("petprofile", {
-        pets: dbPets
+    })
+      .then(function(dbPets) {
+        pet = dbPets;
+      })
+      .then(function() {
+        db.User.findOne({
+          where: { id: req.user.id },
+          include: [
+            db.Pet,
+            {
+              model: db.Community,
+              as: "Communities",
+              required: false,
+              attributes: ["id", "name"],
+              through: { attributes: [] }
+            }
+          ]
+        }).then(function(dbUser) {
+          res.render("petprofile", {
+            pet: pet,
+            thisUser: dbUser
+          });
+        });
       });
-    });
   });
+
   var user;
   app.get("/myprofile/:id", isAuthenticated, function(req, res) {
     console.log(req.user);
