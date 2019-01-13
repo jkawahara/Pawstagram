@@ -3,6 +3,7 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+  var user;
   // Load sign up page
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
@@ -176,11 +177,11 @@ module.exports = function(app) {
       });
   });
 
-  var user;
+
   app.get("/myprofile/:id", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.User.findOne({
-      where: { id: req.params.id },
+      where: { id: req.user.id },
       include: [
         db.Pet,
         {
@@ -191,29 +192,11 @@ module.exports = function(app) {
           through: { attributes: [] }
         }
       ]
-    })
-      .then(function(dbUser) {
-        user = dbUser;
-      })
-      .then(function() {
-        db.User.findOne({
-          where: { id: req.user.id },
-          include: [
-            db.Pet,
-            {
-              model: db.Community,
-              as: "Communities",
-              required: false,
-              attributes: ["id", "name"],
-              through: { attributes: [] }
-            }
-          ]
-        }).then(function(dbUser) {
+    }).then(function(dbUser) {
           res.render("myprofile", {
-            user: user,
+            user: dbUser,
             thisUser: dbUser
           });
         });
       });
-  });
 };
