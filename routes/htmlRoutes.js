@@ -75,11 +75,30 @@ module.exports = function(app) {
           through: { attributes: [] }
         }
       ]
-    }).then(function(dbUser) {
-      res.render("userprofile", {
-        user: dbUser
+    })
+      .then(function(dbUser) {
+        user = dbUser;
+      })
+      .then(function() {
+        db.User.findOne({
+          where: { id: req.user.id },
+          include: [
+            db.Pet,
+            {
+              model: db.Community,
+              as: "Communities",
+              required: false,
+              attributes: ["id", "name"],
+              through: { attributes: [] }
+            }
+          ]
+        }).then(function(dbUser) {
+          res.render("userprofile", {
+            user: user,
+            thisUser: dbUser
+          });
+        });
       });
-    });
   });
 
   // For testing model using starter views
@@ -113,28 +132,7 @@ module.exports = function(app) {
       });
     });
   });
-
-  app.get("/myprofile/:id", isAuthenticated, function(req, res) {
-    db.User.findOne({
-      where: { id: req.params.id },
-      include: [
-        db.Pet,
-        {
-          model: db.Community,
-          as: "Communities",
-          required: false,
-          attributes: ["id", "name"],
-          through: { attributes: [] }
-        }
-      ]
-    }).then(function(dbUser) {
-      // console.log(dbUser)
-      res.render("myprofile", {
-        user: dbUser
-      });
-    });
-  });
-
+  var user;
   app.get("/myprofile/:id", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.User.findOne({
@@ -149,31 +147,29 @@ module.exports = function(app) {
           through: { attributes: [] }
         }
       ]
-    }).then(function(dbUser) {
-      res.render("myprofile", {
-        user: dbUser
+    })
+      .then(function(dbUser) {
+        user = dbUser;
+      })
+      .then(function() {
+        db.User.findOne({
+          where: { id: req.user.id },
+          include: [
+            db.Pet,
+            {
+              model: db.Community,
+              as: "Communities",
+              required: false,
+              attributes: ["id", "name"],
+              through: { attributes: [] }
+            }
+          ]
+        }).then(function(dbUser) {
+          res.render("myprofile", {
+            user: user,
+            thisUser: dbUser
+          });
+        });
       });
-    });
-    db.User.findOne({
-      where: { id: req.user.id },
-      include: [
-        db.Pet,
-        {
-          model: db.Community,
-          as: "Communities",
-          required: false,
-          attributes: ["id", "name"],
-          through: { attributes: [] }
-        }
-      ]
-    }).then(function(dbUser) {
-      res.render("myprofile", {
-        thisUser: dbUser
-      });
-    });
-  });
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
   });
 };
