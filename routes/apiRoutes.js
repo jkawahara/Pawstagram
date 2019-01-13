@@ -180,4 +180,21 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
+
+  app.get("/api/addcommunity/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(users) {
+      db.Community.findOne({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(Commune) {
+        Commune.addCommunities(users);
+        res.json(Commune);
+      });
+    });
+  });
 };
