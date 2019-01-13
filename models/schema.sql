@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS petstagram_db;
-CREATE DATABASE petstagram_db;
-USE petstagram_db;
+DROP DATABASE IF EXISTS pawstagram_db;
+CREATE DATABASE pawstagram_db;
+USE pawstagram_db;

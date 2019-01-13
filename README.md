@@ -27,7 +27,7 @@
         * Relevant functions: require(), use(), engine(), set(), sync(), listen()
         * Export: app
       * Database Setup (schema.sql, seeds.sql TBD)
-        * Create petstagram_db database
+        * Create pawstagram_db database
         * Available Seed with TBD
       * Configuration Definition (config.json)
         * Define configuration object with nested development, test and production environments
