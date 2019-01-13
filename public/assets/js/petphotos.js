@@ -5,9 +5,10 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
   console.log("something")
   var petPhoto = {
-    petPhotoUrl: $petPhotoUrl.val().trim()
+    PetPhotoId : petPhotoId,
+    url: $petPhotoUrl.val().trim()
   };
-  if (!petPhoto.petPhotoUrl) {
+  if (!petPhoto.url) {
     alert("You must enter a value!");
     return;
   }
