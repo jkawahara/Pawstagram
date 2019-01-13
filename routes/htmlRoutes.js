@@ -108,6 +108,7 @@ module.exports = function(app) {
   });
 
   // For testing model using starter views
+  var comm;
   app.get("/comm/:id", function(req, res) {
     db.Community.findOne({
       where: { id: req.params.id },
@@ -120,11 +121,30 @@ module.exports = function(app) {
           through: { attributes: [] }
         }
       ]
-    }).then(function(dbComm) {
-      res.render("comm", {
-        comm: dbComm
+    })
+      .then(function(dbComm) {
+        comm = dbComm;
+      })
+      .then(function() {
+        db.User.findOne({
+          where: { id: req.user.id },
+          include: [
+            db.Pet,
+            {
+              model: db.Community,
+              as: "Communities",
+              required: false,
+              attributes: ["id", "name"],
+              through: { attributes: [] }
+            }
+          ]
+        }).then(function(dbUser) {
+          res.render("comm", {
+            comm: comm,
+            thisUser: dbUser
+          });
+        });
       });
-    });
   });
 
   // For testing model using starter views
