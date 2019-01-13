@@ -128,12 +128,50 @@ module.exports = function(app) {
         }
       ]
     }).then(function(dbUser) {
+      // console.log(dbUser)
       res.render("myprofile", {
         user: dbUser
       });
     });
   });
 
+  app.get("/myprofile/:id", isAuthenticated, function(req, res) {
+    console.log(req.user);
+    db.User.findOne({
+      where: { id: req.params.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.render("myprofile", {
+        user: dbUser
+      });
+    });
+    db.User.findOne({
+      where: { id: req.user.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.render("myprofile", {
+        thisUser: dbUser
+      });
+    });
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

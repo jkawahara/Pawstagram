@@ -22,7 +22,7 @@
               <i class="material-icons">pets</i> My Pets
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              {{#each user.Pets}}
+              {{#each thisUser.Pets}}
                 <a href="../pet/{{id}}" class="dropdown-item">
                   {{name}}
                 </a>
@@ -34,7 +34,7 @@
               <i class="material-icons">group_work</i> My Communities
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              {{#each user.Communities}}
+              {{#each thisUser.Communities}}
                 <a href="../comm/{{id}}" class="dropdown-item">
                   {{name}}
                 </a>
