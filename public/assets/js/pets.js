@@ -21,6 +21,8 @@ var API = {
       type: "POST",
       url: "api/pets",
       data: JSON.stringify(pet)
+    }).then(function() {
+      alert("Added your pet");
     });
   },
   get: function() {

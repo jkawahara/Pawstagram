@@ -58,6 +58,11 @@ module.exports = function(app) {
     });
   });
 
+  //sends user to edit page
+  app.get("/useredit", function(req, res) {
+    res.render("useredit");
+  });
+
   app.get("/newpet", isAuthenticated, function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
       res.render("newPet", {
