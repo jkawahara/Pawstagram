@@ -169,7 +169,7 @@ module.exports = function(app) {
           ]
         }).then(function(dbUser) {
           res.render("petprofile", {
-            pet: pet,
+            pets: pet,
             thisUser: dbUser
           });
         });
