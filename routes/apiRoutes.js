@@ -144,6 +144,7 @@ module.exports = function(app) {
 
     // Create a new pet photo
     app.post("/api/petphotos", function(req, res) {
+      console.log(req.body)
       db.PetPhoto.create(req.body).then(function(dbPetPhotos) {
         res.json(dbPetPhotos);
       });

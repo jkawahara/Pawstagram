@@ -38,13 +38,29 @@
               <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">see all...</a>
             </div> --}}
           </div>
-                  <div class="row">
+          <div class="row">
           <div class="col-lg-11 mx-auto">
-            <a href="/newpetphoto" class="btn btn-info mb-3 btn-wd btn-lg">Add New Pet Photo</a>
           </div>
         </div>
         </div>
+          <div class="row">
+          <h2 class="text-center">Enter a URL below to add a photo for this pet:</h2>
+          <form class="new-pet" style="width: 100%;" action="POST">
+            {{!-- <div class="form-group">
+              <label for="pet-user" class="bmd-label-floating">Your Owner ID:</label>
+              <input type="text" id="pet-user" class="form-control" aria-describedby="pet-user" placeholder="">
+            </div> --}}
+            <div class="form-group">
+              <label for="pet-photo-url" class="bmd-label-floating">Pet Photo URL:</label>
+              <input type="text" id="pet-photo-url" class="form-control" aria-describedby="pet-photo-url" placeholder="">
+            </div>
+            <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </form>
+          <a href="/user"><button id="cancel" href="/user" style="margin-top: -65px;" class="btn btn-dark float-left">Cancel</button></a>
+      </div>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/petphotos.js"></script>

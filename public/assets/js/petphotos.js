@@ -1,11 +1,13 @@
 var $petPhotoUrl = $("#pet-photo-url");
 var $submitBtn = $("#submit");
 
+var currentPetId = window.location.pathname.split("/").pop();
+console.log(currentPetId)
 var handleFormSubmit = function(event) {
   event.preventDefault();
   console.log("something")
   var petPhoto = {
-    PetPhotoId : petPhotoId,
+    PetId : currentPetId,
     url: $petPhotoUrl.val().trim()
   };
   if (!petPhoto.url) {
@@ -13,9 +15,6 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.post(petPhoto).then(function() {
-    refresh();
-  });
   $petPhotoUrl.val("");
 };
 $submitBtn.on("click", handleFormSubmit);
@@ -28,7 +27,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "/api/petphotos",
+      url: "api/petphotos",
       data: JSON.stringify(petPhoto)
     }).then(function() {
       alert("Added your pet photo!");
