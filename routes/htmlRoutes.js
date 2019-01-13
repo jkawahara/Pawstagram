@@ -93,7 +93,7 @@ module.exports = function(app) {
             }
           ]
         }).then(function(dbUser) {
-          res.render("myprofile", {
+          res.render("userprofile", {
             user: user,
             thisUser: dbUser
           });
