@@ -21,24 +21,19 @@
     * [Issues](https://github.com/sgenini/projectTwo/issues): Issue tracking for user stories, features and bug report
   * Functionality - refer to [video of application user flow](https://drive.google.com/open?id=1-7NwQiifKQjHtdcAljDwRRVcP_7MdPFq):
     * Wireframe
-      * Home ![homepage.png](public/assets/readme_links/homepage.png "homepage")
-        * Describe functionality...
-      * Signup ![signup.png](public/assets/readme_links/signup.png "signup")
-        * Describe functionality...
-      * Login ![login.png](public/assets/readme_links/login.png "login")
-        * Describe functionality...
-      * My Profile ![myprofile.png](public/assets/readme_links/myprofile.png "myprofile")
-        * Describe functionality...
-      * Pet Profile ![petprofile.png](public/assets/readme_links/petprofile.png "petprofile")
-        * Describe functionality...
-      * Add Pet ![addpet.png](public/assets/readme_links/addpet.png "addpet")
-        * Describe functionality...
-      * User View ![userview.png](public/assets/readme_links/userview.png "userview")
-        * Describe functionality...
-      * Community Posts ![communityposts.png](public/assets/readme_links/communityposts.png "communityposts")
-        * Describe functionality...
-      * Add Community ![addcommunity.png](public/assets/readme_links/addcommunity.png "addcommunity")
-        * Describe functionality...
+      * Home page ![homepage.png](public/assets/readme_links/homepage.png "homepage")
+      * Sign up as a new user... ![signup.png](public/assets/readme_links/signup.png "signup")
+      * Login with email and password to authenticate... ![login.png](public/assets/readme_links/login.png "login")
+      * View authenticated user profile... ![myprofile.png](public/assets/readme_links/myprofile.png "myprofile")
+      * View pet profile... ![petprofile.png](public/assets/readme_links/petprofile.png "petprofile")
+      * Add new pet to authenticated user... ![addpet.png](public/assets/readme_links/addpet.png "addpet")
+      * View other user profiles... ![userview.png](public/assets/readme_links/userview.png "userview")
+      * View community posts by members... ![communityposts.png](public/assets/readme_links/communityposts.png "communityposts")
+      * Add new community... ![addcommunity.png](public/assets/readme_links/addcommunity.png "addcommunity")
+      * JSON Resources
+        * Communities ![jsoncomms.png](public/assets/readme_links/jsoncomms.png "jsoncomms")
+        * Users ![jsonusers.png](public/assets/readme_links/jsonusers.png "jsonusers")
+        * Pets ![jsonpets.png](public/assets/readme_links/jsonpets.png "jsonpets")
   * Design Description ![architecture.png](public/assets/readme_links/architecture.png "achitecture")
     * Application Setup (server.js)
       * Configure Express web app framework listening on process.env.PORT (Heroku) or default to 3000. Parse URL encoded, any type including nested objects, and JSON and call appropriate routing.
@@ -68,10 +63,14 @@
       * Required modules: /models, path
       * Relevant functions: require(), exports(), get(), findAll(), findOne(), post(), create(), put(), update(), delete(), destroy(), sendFile(), render()
       * Export: router, function(app) {}
-    * View Setup (server-side: main, 404, comm, commtest, pet, petprofile, pettest, user, userprofile, usertest.handlebars, client-side: community, home, login, pet, signup, user-page.html, /assets)
-      * Use Handlebars.js as web templating system for main layout
-      * TBD main.handlebars: include boilerplate HTML5 doctype and viewport meta tag along with Bootstrap CSS and jQuery
-      * TBD index.handlebars: use Bootstrap grid layout for positioning
+    * Authentication Setup
+      * Use Passport to configure authentication...
+      * Required modules: TBD
+      * Relevant functions: TBD
+      * Export: TBD
+    * View Setup (server-side: /layout/main.handlebars, /layout/partials/*.handlebars, *.handlebars, client-side: home-page, login-page, signup-page)
+      * Render statically HTML pages on the client-side within /public.
+      * Use Handlebars.js as web templating system with HTML pages leveraging main.handlebars layout and various *.handlebars partials.  
   * Prerequisites for Development:
     * MacBook Air (Intel Core i7, 2.2 GHz, 1 Processor, 2 Cores, 8GB)
     * 64 bit operating system 
@@ -99,69 +98,31 @@
     * For further development or use of this application, clone or download application files from GitHub, which is organized into the following directory structure:
       * /projectTwo (application root directory level)
         * /config
-          * config.json
+          * /middleware
         * /models
-          * community.js
-          * index.js
-          * pet.js
-          * petphoto.js
-          * photopost.js
-          * schema.sql
-          * user.js
         * /node_modules (ignored by git) - generated first time npm install executes
         * /public
           * assets
             * /css
-              * material-kit.css
-              * material-kit.css.map
-              * material-kit.min.css
-              * style.css
             * /demo
-              * demo.css
             * /img (various)
               * /examples (various)
               * /faces (various)
             * /js
               * /core (various)
               * /plugins (various)
-              * comms.js
-              * material-kit.js
-              * material-kit.js.map
-              * material-kit.js.js
-              * pets.js
-              * users.js
             * /readme_links/ (various)
             * /scss (various)
-          * community-page.html
-          * home-page.html
-          * login-page.html
-          * pet-page.html
-          * signup-page.html
-          * user-page.html
         * /routes
-          * apiRoutes.js
-          * htmlRoutes.js
         * /test
-          * canary.test.js
-          * test.js
         * /views
           * /layouts
-            * main.handlebars
           * /partials
             * /footer
             * /nav
             * /petPhotos
             * /pets
             * /userCommunities
-          * 404.handlebars
-          * comm.handlebars
-          * myprofile.handlebars
-          * newComm.handlebars
-          * newPet.handlebars
-          * pet.handlebars
-          * petprofile.handlebars
-          * user.handlebars
-          * userprofile.handlebars 
         * .eslintignore
         * .eslintrc.json
         * .gitignore
