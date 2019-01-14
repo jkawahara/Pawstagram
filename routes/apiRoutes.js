@@ -151,7 +151,7 @@ module.exports = function(app) {
 
   // Delete a pet photo by id
   app.delete("/api/petphotos/:id", function(req, res) {
-    db.PetPhotos.destroy({ where: { id: req.params.id } }).then(function(
+    db.PetPhoto.destroy({ where: { id: req.params.id } }).then(function(
       dbPetPhotos
     ) {
       res.json(dbPetPhotos);

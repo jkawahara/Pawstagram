@@ -20,16 +20,15 @@ var handleFormSubmit = function(event) {
   $petPhotoUrl.val("");
 };
 $submitBtn.on("click", handleFormSubmit);
-$petPhotos.on("click", handleDeleteBtnClick);
+
+$(function() {
+  $petPhotos.on("click", ".delete-picture", handleDeleteBtnClick);
+});
 
 var handleDeleteBtnClick = function() {
-  console.log("clicking");
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+  var idToDelete = $(this).attr("data-id");
   API.delete(idToDelete).then(function() {
-    alert("Deleted!");
-    refreshExamples();
+    alert("Pet Photo Deleted!");
     location.reload();
   });
 };
