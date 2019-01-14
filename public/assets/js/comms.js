@@ -17,6 +17,8 @@ var API = {
       type: "POST",
       url: "api/comms",
       data: JSON.stringify(comm)
+    }).then(function(){
+      location.reload()
     });
   },
   get: function() {
