@@ -72,11 +72,6 @@ module.exports = function(app) {
     });
   });
 
-  //route for adding photo for pet page
-  app.get("/newpetphoto", function(req, res) {
-    res.render("newpetphoto");
-  });
-
   app.get("/newpet", isAuthenticated, function(req, res) {
     db.Pet.findAll({ raw: true }).then(function(dbPets) {
       res.render("newPet", {
