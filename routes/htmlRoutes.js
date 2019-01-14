@@ -60,7 +60,7 @@ module.exports = function(app) {
 
   //sends user to edit page
   app.get("/useredit", function(req, res) {
-    res.render("useredit");
+    res.render("userEdit");
   });
 
   app.get("/newpet", isAuthenticated, function(req, res) {
