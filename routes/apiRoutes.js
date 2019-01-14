@@ -149,8 +149,8 @@ module.exports = function(app) {
     });
   });
 
-  // Delete a pet photo
-  app.delete("/api/comms/:id", function(req, res) {
+  // Delete a pet photo by id
+  app.delete("/api/petphotos/:id", function(req, res) {
     db.PetPhotos.destroy({ where: { id: req.params.id } }).then(function(
       dbPetPhotos
     ) {

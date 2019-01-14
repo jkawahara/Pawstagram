@@ -1,11 +1,11 @@
 var $petPhotoUrl = $("#pet-photo-url");
 var $submitBtn = $("#submit");
+var $petPhotos = $("#photos-container");
 
 var currentPetId = window.location.pathname.split("/").pop();
 console.log(currentPetId);
 var handleFormSubmit = function(event) {
   event.preventDefault();
-  console.log("something");
   var petPhoto = {
     PetId: currentPetId,
     url: $petPhotoUrl.val().trim()
@@ -20,6 +20,19 @@ var handleFormSubmit = function(event) {
   $petPhotoUrl.val("");
 };
 $submitBtn.on("click", handleFormSubmit);
+$petPhotos.on("click", handleDeleteBtnClick);
+
+var handleDeleteBtnClick = function() {
+  console.log("clicking");
+  var idToDelete = $(this)
+    .parent()
+    .attr("data-id");
+  API.delete(idToDelete).then(function() {
+    alert("Deleted!");
+    refreshExamples();
+    location.reload();
+  });
+};
 
 var API = {
   post: function(petPhoto) {
@@ -50,13 +63,4 @@ var API = {
       type: "DELETE"
     });
   }
-  // $exampleList.on("click", ".delete", handleDeleteBtnClick)
-  // var handleDeleteBtnClick = function() {
-  //   var idToDelete = $(this)
-  //     .parent()
-  //     .attr("data-id");
-  //   API.deleteExample(idToDelete).then(function() {
-  //     refreshExamples();
-  //   });
-  // };
 };
