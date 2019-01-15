@@ -26,6 +26,25 @@ module.exports = function(app) {
     res.json(req.user);
   });
 
+  // Get CURRENT user's communities
+  app.get("/api/thisusercommunities/", function(req, res) {
+    db.User.findOne({
+      where: { id: req.user.id },
+      include: [
+        db.Pet,
+        {
+          model: db.Community,
+          as: "Communities",
+          required: false,
+          attributes: ["id", "name"],
+          through: { attributes: [] }
+        }
+      ]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
   // Get user
   app.get("/api/users/:id", function(req, res) {
     db.User.findOne({

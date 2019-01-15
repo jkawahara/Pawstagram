@@ -10,8 +10,20 @@ var config = {
 firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
-
 var community = window.location.pathname.split("/").pop();
+var alreadyJoinedCommunity;
+
+$.get("/api/thisusercommunities", function(data) {
+  alreadyJoinedCommunity = data.Communities;
+  console.log(alreadyJoinedCommunity);
+  console.log(community);
+  for (var i = 0; i < alreadyJoinedCommunity.length; i++) {
+    if (alreadyJoinedCommunity[i].id === parseInt(community)) {
+      $("#join-community").hide();
+    }
+  }
+});
+
 console.log(community);
 $("#join-community").on("click", function() {
   if (confirm("Are you sure you want to join this community?")) {
