@@ -25,6 +25,27 @@ $(function() {
   $petPhotos.on("click", ".delete-picture", handleDeleteBtnClick);
 });
 
+$(function() {
+  $(".uplike").on("click", handleLikeClick);
+});
+var likesObj;
+var handleLikeClick = function() {
+  var idToLike = $(this).attr("data-id");
+  console.log(idToLike);
+  $.get("api/petphotos/" + idToLike, function(data) {
+    console.log(data);
+    console.log(data.likes);
+    var likesNum = data.likes;
+    likesNum++;
+    likesObj = { likes: likesNum };
+  }).then(function() {
+    API.update(idToLike).then(function() {
+      console.log("liked!");
+      location.reload();
+    });
+  });
+};
+
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this).attr("data-id");
   API.delete(idToDelete).then(function() {
@@ -44,16 +65,20 @@ var API = {
       url: "api/petphotos",
       data: JSON.stringify(petPhoto)
     }).then(function() {
-      alert("Added your pet photo!");
       location.reload();
     });
   },
-  // get: function() {
-  //   return $.ajax({
-  //     url: "api/users",
-  //     type: "GET"
-  //   });
-  // },
+  update: function(likeId) {
+    console.log(likeId);
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "PUT",
+      url: "/api/petphotos/" + likeId,
+      data: JSON.stringify(likesObj)
+    });
+  },
 
   //can implement delete user button for this one
   delete: function(id) {
