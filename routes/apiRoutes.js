@@ -83,6 +83,23 @@ module.exports = function(app) {
     });
   });
 
+  //get a pet photo
+  app.get("/pet/api/petphotos/:id", function(req, res) {
+    db.PetPhoto.findOne({ where: { id: req.params.id } }).then(function(dbPet) {
+      res.json(dbPet);
+    });
+  });
+  //update a petphoto
+  app.put("/api/petphotos/:id", function(req, res) {
+    console.log(req.body);
+    db.PetPhoto.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPhoto) {
+      res.json(dbPhoto);
+    });
+  });
   // Delete a user by id
   app.delete("/api/users/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
