@@ -30,7 +30,7 @@
 </body>
 
 <!-- FIREBASE -->
-  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 
 <!--   Core JS Files   -->
 <script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
@@ -47,7 +47,7 @@
 <script src="../../assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
 {{!-- <script src="../../assets/js/community-page.js"></script> --}}
 <script>
-var messageScroll = $('#message-container')
+  var messageScroll = $('#message-container')
     messageScroll.animate({
         scrollTop: messageScroll.get(0).scrollHeight   
     }, 0);
@@ -57,7 +57,7 @@ var messageScroll = $('#message-container')
       materialKit.initFormExtendedDatetimepickers();
 
       // Sliders Init
-      materialKit.initSliders();
+      // materialKit.initSliders();
   });
 
 
@@ -67,67 +67,13 @@ var messageScroll = $('#message-container')
           scrollTop: $('.section-download').offset().top
       }, 1000);
       }
-  }
-
-  $(document).ready(function() {
-    $('#facebook').sharrre({
-      share: {
-          facebook: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      click: function(api, options) {
-          api.simulateClick();
-          api.openPopup('facebook');
-      },
-      template: '<i class="fab fa-facebook-f"></i> Facebook',
-      url: 'https://demos.creative-tim.com/material-kit/index.html'
-      });
-
-    $('#googlePlus').sharrre({
-      share: {
-          googlePlus: true
-      },
-      enableCounter: false,
-      enableHover: false,
-      enableTracking: true,
-      click: function(api, options) {
-          api.simulateClick();
-          api.openPopup('googlePlus');
-      },
-      template: '<i class="fab fa-google-plus"></i> Google',
-      url: 'https://demos.creative-tim.com/material-kit/index.html'
-      });
-
-    $('#twitter').sharrre({
-      share: {
-          twitter: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      buttons: {
-          twitter: {
-          via: 'CreativeTim'
-          }
-      },
-    click: function(api, options) {
-      api.simulateClick();
-      api.openPopup('twitter');
-      },
-      template: '<i class="fab fa-twitter"></i> Twitter',
-      url: 'https://demos.creative-tim.com/material-kit/index.html'
-      });
-  });
-    
+  } 
 </script>
 
 <script>var userid
 $.get("/api/thisuser", 
 function(data) {
   userId = data.id
-  console.log(userId)
 })</script>
 
 

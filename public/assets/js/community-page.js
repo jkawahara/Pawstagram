@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyB6vWd4deq4rRbay-ThzYAxJp-_dcNz3PY",
-  authDomain: "petstagram-ee97f.firebaseapp.com",
-  databaseURL: "https://petstagram-ee97f.firebaseio.com",
-  projectId: "petstagram-ee97f",
-  storageBucket: "petstagram-ee97f.appspot.com",
-  messagingSenderId: "646710545726"
+  apiKey: "AIzaSyDpWVyS7wZmUsQ8xoV-VkbAMS5MybqlDCU",
+  authDomain: "bcbc-pawstagram.firebaseapp.com",
+  databaseURL: "https://bcbc-pawstagram.firebaseio.com",
+  projectId: "bcbc-pawstagram",
+  storageBucket: "bcbc-pawstagram.appspot.com",
+  messagingSenderId: "222138769257"
 };
 firebase.initializeApp(config);
 // Get a reference to the database service
@@ -15,8 +15,6 @@ var alreadyJoinedCommunity;
 
 $.get("/api/thisusercommunities", function(data) {
   alreadyJoinedCommunity = data.Communities;
-  console.log(alreadyJoinedCommunity);
-  console.log(community);
   for (var i = 0; i < alreadyJoinedCommunity.length; i++) {
     if (alreadyJoinedCommunity[i].id === parseInt(community)) {
       $("#join-community").hide();
@@ -24,15 +22,13 @@ $.get("/api/thisusercommunities", function(data) {
   }
 });
 
-console.log(community);
 $("#join-community").on("click", function() {
   if (confirm("Are you sure you want to join this community?")) {
-    $.get("/api/addcommunity/" + community, function(data) {
-      console.log(data);
-    }).then(function() {
-      alert("community joined!");
-      location.reload();
-    });
+    $.get("/api/addcommunity/" + community)
+      .then(function() {
+        alert("community joined!");
+        location.reload();
+      });
   }
 });
 

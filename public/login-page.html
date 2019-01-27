@@ -48,21 +48,6 @@
               </a>
             </div>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-              <i class="material-icons">cloud_download</i> Download (iOS)
-            </a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://github.com/sgenini/projectTwo" target="_blank" data-original-title="Check out our GitHub Repo">
                 <i class="fa fa-github-alt"></i> GitHub Repo
@@ -82,17 +67,6 @@
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title font-lato remove-mb drop-shadow">Welcome to</h4>
                 <h3 class="font-pacifico drop-shadow">Pawstagram</h3>
-                  <!-- <div class="social-line mt-1 remove-mb">
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-google-plus"></i>
-                    </a>
-                  </div> -->
                 </div>
                   <p class="description text-center remove-mb" style="margin-top: 35px;">Pawstagram Account Login</p>
                     <div class="card-body mt-3">
@@ -143,14 +117,11 @@
           </nav>
           <div class="copyright float-right font-roboto text-uppercase"><small class="font-white">
             &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, Pawstagram.</small>
+            <script>document.write(new Date().getFullYear())</script>, Pawstagram.</small>
           </div>
         </div>
       </footer>
   </div>
-
 
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
@@ -168,76 +139,20 @@
   <!-- script for loging js -->
   <script src="assets/js/login.js"></script>
   <script>
-  $(document).ready(function() {
-      //init DateTimePickers
-      materialKit.initFormExtendedDatetimepickers();
+    $(document).ready(function() {
+        //init DateTimePickers
+        materialKit.initFormExtendedDatetimepickers();
 
-      // Sliders Init
-      // materialKit.initSliders();
-  });
-
-
-  function scrollToDownload() {
+        // Sliders Init
+        // materialKit.initSliders();
+    });
+    function scrollToDownload() {
       if ($('.section-download').length != 0) {
-      $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-      }, 1000);
+        $("html, body").animate({
+            scrollTop: $('.section-download').offset().top
+        }, 1000);
       }
-  }
-
-
-  // $(document).ready(function() {
-  //   $('#facebook').sharrre({
-  //     share: {
-  //         facebook: true
-  //     },
-  //     enableHover: false,
-  //     enableTracking: false,
-  //     enableCounter: false,
-  //     click: function(api, options) {
-  //         api.simulateClick();
-  //         api.openPopup('facebook');
-  //     },
-  //     template: '<i class="fab fa-facebook-f"></i> Facebook',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-
-  //   $('#googlePlus').sharrre({
-  //     share: {
-  //         googlePlus: true
-  //     },
-  //     enableCounter: false,
-  //     enableHover: false,
-  //     enableTracking: true,
-  //     click: function(api, options) {
-  //         api.simulateClick();
-  //         api.openPopup('googlePlus');
-  //     },
-  //     template: '<i class="fab fa-google-plus"></i> Google',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-
-  //   $('#twitter').sharrre({
-  //     share: {
-  //         twitter: true
-  //     },
-  //     enableHover: false,
-  //     enableTracking: false,
-  //     enableCounter: false,
-  //     buttons: {
-  //         twitter: {
-  //         via: 'CreativeTim'
-  //         }
-  //     },
-  //   click: function(api, options) {
-  //     api.simulateClick();
-  //     api.openPopup('twitter');
-  //     },
-  //     template: '<i class="fab fa-twitter"></i> Twitter',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-  // });
-  </script>
+    }
+</script>
 </body>
-
 </html>

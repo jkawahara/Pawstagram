@@ -76,7 +76,6 @@ var handleFormSubmit = function(event) {
     bio: $petBio.val().trim(),
     profPic: $petProfPic.val().trim()
   };
-  console.log(pet);
 
   if (
     !// pet.UserId &&

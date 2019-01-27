@@ -19,13 +19,10 @@ var API = {
       data: JSON.stringify(comm)
     }).then(function(data) {
       var communityNum = data.id;
-      console.log(data);
       $.get("/api/addcommunity/" + communityNum, function(data) {
-        console.log(data);
       }).then(function() {
         alert("community created and joined!");
         window.location.replace("/comm/" + communityNum);
-        // location.reload();
       });
     });
   },

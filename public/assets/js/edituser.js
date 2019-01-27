@@ -28,7 +28,6 @@ $submitBtn.on("click", handleFormSubmit);
 
 var API = {
   post: function(user) {
-    console.log(user);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"

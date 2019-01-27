@@ -22,7 +22,6 @@ module.exports = function(app) {
 
   // Get CURRENT user
   app.get("/api/thisuser", function(req, res) {
-    console.log(req.user);
     res.json(req.user);
   });
 
@@ -73,7 +72,6 @@ module.exports = function(app) {
 
   // Edit a user
   app.put("/api/useredit", function(req, res) {
-    console.log(req.body);
     db.User.update(req.body, {
       where: {
         id: req.user.id
@@ -91,7 +89,6 @@ module.exports = function(app) {
   });
   //update a petphoto
   app.put("/api/petphotos/:id", function(req, res) {
-    console.log(req.body);
     db.PetPhoto.update(req.body, {
       where: {
         id: req.params.id

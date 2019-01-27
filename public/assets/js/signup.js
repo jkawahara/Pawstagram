@@ -3,24 +3,15 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
-  // var passwordConfirm = $("input#password-confirm");
   var fullName = $("input#fullname-input");
-  // console.log(fullName.val())
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
-    // if (passwordInput===passwordConfirm){
       var userData = {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim(),
         name: fullName.val().trim()
       };
-    // }
-    // else{
-      //if the passwords don't match, informs the user of such
-    //   notMatchingPassword();
-    // }
-      console.log(userData)
     if (!userData.email || !userData.password || !userData.name) {
       return;
     }
@@ -28,7 +19,6 @@ $(document).ready(function() {
     signUpUser(userData.email, userData.password, userData.name);
     emailInput.val("");
     passwordInput.val("");
-    // passwordConfirm.val("");
     fullName.val("");
     
     // Does a post to the signup route. If succesful, we are redirected to the members page
@@ -48,10 +38,5 @@ $(document).ready(function() {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     };
-    
-    // function notMatchingPassword() {
-      //   $("#alert .msg").text("Passwords do not match!");
-      //   $("#alert").fadeIn(500);
-      // }
   });
 });

@@ -124,13 +124,11 @@
           <div class="copyright float-right font-roboto text-uppercase"><small class="font-white">
             &copy;
             <script>
-              document.write(new Date().getFullYear())
-            </script>, Pawstagram.
+              document.write(new Date().getFullYear())</script>, Pawstagram.
           </div>
         </div>
       </footer>
   </div>
-
 
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
@@ -148,76 +146,20 @@
   <!-- script for signup page -->
   <script src="./assets/js/signup.js"></script>
   <script>
-  $(document).ready(function() {
-      //init DateTimePickers
-      materialKit.initFormExtendedDatetimepickers();
+    $(document).ready(function() {
+        //init DateTimePickers
+        materialKit.initFormExtendedDatetimepickers();
 
-      // Sliders Init
-      materialKit.initSliders();
-  });
-
-
-  function scrollToDownload() {
-      if ($('.section-download').length != 0) {
-      $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-      }, 1000);
-      }
-  }
-
-
-  // $(document).ready(function() {
-  //   $('#facebook').sharrre({
-  //     share: {
-  //         facebook: true
-  //     },
-  //     enableHover: false,
-  //     enableTracking: false,
-  //     enableCounter: false,
-  //     click: function(api, options) {
-  //         api.simulateClick();
-  //         api.openPopup('facebook');
-  //     },
-  //     template: '<i class="fab fa-facebook-f"></i> Facebook',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-
-  //   $('#googlePlus').sharrre({
-  //     share: {
-  //         googlePlus: true
-  //     },
-  //     enableCounter: false,
-  //     enableHover: false,
-  //     enableTracking: true,
-  //     click: function(api, options) {
-  //         api.simulateClick();
-  //         api.openPopup('googlePlus');
-  //     },
-  //     template: '<i class="fab fa-google-plus"></i> Google',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-
-  //   $('#twitter').sharrre({
-  //     share: {
-  //         twitter: true
-  //     },
-  //     enableHover: false,
-  //     enableTracking: false,
-  //     enableCounter: false,
-  //     buttons: {
-  //         twitter: {
-  //         via: 'CreativeTim'
-  //         }
-  //     },
-  //   click: function(api, options) {
-  //     api.simulateClick();
-  //     api.openPopup('twitter');
-  //     },
-  //     template: '<i class="fab fa-twitter"></i> Twitter',
-  //     url: 'https://demos.creative-tim.com/material-kit/index.html'
-  //     });
-  // });
-  </script>
+        // Sliders Init
+        // materialKit.initSliders();
+    });
+    function scrollToDownload() {
+        if ($('.section-download').length != 0) {
+        $("html, body").animate({
+            scrollTop: $('.section-download').offset().top
+        }, 1000);
+        }
+    }
+</script>
 </body>
-
 </html>

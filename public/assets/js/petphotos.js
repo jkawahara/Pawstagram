@@ -3,7 +3,6 @@ var $submitBtn = $("#submit");
 var $petPhotos = $("#photos-container");
 
 var currentPetId = window.location.pathname.split("/").pop();
-console.log(currentPetId);
 var handleFormSubmit = function(event) {
   event.preventDefault();
   var petPhoto = {
@@ -31,16 +30,12 @@ $(function() {
 var likesObj;
 var handleLikeClick = function() {
   var idToLike = $(this).attr("data-id");
-  console.log(idToLike);
   $.get("api/petphotos/" + idToLike, function(data) {
-    console.log(data);
-    console.log(data.likes);
     var likesNum = data.likes;
     likesNum++;
     likesObj = { likes: likesNum };
   }).then(function() {
     API.update(idToLike).then(function() {
-      console.log("liked!");
       location.reload();
     });
   });
@@ -56,7 +51,6 @@ var handleDeleteBtnClick = function() {
 
 var API = {
   post: function(petPhoto) {
-    console.log(petPhoto);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -69,7 +63,6 @@ var API = {
     });
   },
   update: function(likeId) {
-    console.log(likeId);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"

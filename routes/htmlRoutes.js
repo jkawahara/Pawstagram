@@ -192,7 +192,6 @@ module.exports = function(app) {
   });
 
   app.get("/myprofile/:id", isAuthenticated, function(req, res) {
-    console.log(req.user);
     db.User.findOne({
       where: { id: req.user.id },
       include: [
