@@ -1,8 +1,6 @@
 # Pawstagram
 ### Live Version of App: [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
 ### 1. Why / Background
-  * This is Berkeley Coding Boot Camp (BCBC) project 2 group 6.
-    * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack to teach web development skills across the client and server. 
   * Pawstagram is a full-stack social media web based application that enable users to show off photos of their pets, comment on each other’s pets and join communities with other like minded individuals to chat with and meet up with. Communities can be anything from "San Francisco Dog Joggers" to "Cats wearing Hats" and are user-created.
  ### 2. What / Objectives / User Stories
   * From design through deployment of the application, this project used the following web development technologies:
@@ -149,4 +147,4 @@
  ## License
   * This project is licensed under the [MIT License](LICENSE).
  ## Acknowledgments
-  * Thanks to BCBC program personnel, especially our instructor, David Hallinan, along with our TAs, Hannah Bowers and Glo Austin, for their guidance and support.
+  * Thanks to David Hallinan, Hannah Bowers and Glo Austin for their guidance and support.
