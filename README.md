@@ -1,5 +1,5 @@
 # Pawstagram
-### Live Version of App: [Pawstagram](https://pawstagram.herokuapp.com/)
+### Live Version of App: [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
 ### 1. Why / Background
   * This is Berkeley Coding Boot Camp (BCBC) project 2 group 6.
     * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack to teach web development skills across the client and server. 
@@ -140,7 +140,7 @@
     * Unit testing was informally executed
     * Continuous Integration was practiced by merging smaller code changes frequently and, prior to deployment, leveraging [Travis CI](https://docs.travis-ci.com/user/tutorial/) to carry out a series of automated tasks to build and test the code
   * Deployment:
-    * App deployed on [Heroku](https://pawstagram.herokuapp.com/)
+    * App deployed on [Heroku](https://bcbc-pawstagram.herokuapp.com/)
  ## Versioning
   * For the versions available, see the tags on this repository.
  ## Authors
