@@ -1,5 +1,4 @@
-# Pawstagram
-### Live Version of App: [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
+# [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
 ### 1. Why / Background
   * This is Berkeley Coding Boot Camp (BCBC) project 2 group 6.
     * The BCBC curriculum generally focuses on JavaScript along with HTML/CSS, using the MERN (MongoDB, Express, React, Node) software stack to teach web development skills across the client and server. 
