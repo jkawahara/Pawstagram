@@ -1,4 +1,4 @@
-# [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
+# Live link to [Pawstagram](https://bcbc-pawstagram.herokuapp.com/)
 ### 1. Why / Background
   * Pawstagram is a full-stack social media web based application that enable users to show off photos of their pets, comment on each other’s pets and join communities with other like minded individuals to chat with and meet up with. Communities can be anything from "San Francisco Dog Joggers" to "Cats wearing Hats" and are user-created.
  ### 2. What / Objectives / User Stories
