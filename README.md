@@ -73,7 +73,7 @@
     * 64 bit operating system 
     * git version 2.18.0
     * Visual Studio Code Version 1.29.1
-    * [GitHub projectTwo](https://github.com/sgenini/projectTwo)
+    * [GitHub Repo](https://github.com/jkawahara/Pawstagram)
     * Chrome Version 70.0.3538.110 (Official Build) (64-bit)
   * Built With:
     * Client-side:
